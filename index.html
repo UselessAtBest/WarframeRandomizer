@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Random Line Selector with Counter</title>
+    <title>QTCC Challenge Thingy</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         body {
@@ -23,22 +23,22 @@
             cursor: pointer;
         }
         #output-container {
-         display: flex;               /* Use flexbox */
-         justify-content: center;     /* Center horizontally */
+         display: flex;               
+         justify-content: center;    
 }
 
     #output {
-         display: inline-block;       /* Allow box to resize with content */
-          font-size: 30px;            /* Change font size */
-           color: #333;                /* Change text color */
-            font-weight: bold;          /* Make text bold */
-         padding: 15px;              /* Add padding */
-         border: 4px groove #ccc;    /* Add a dashed border */
-         background-color: #f9f9f9;  /* Background color */
-          border-radius: 10px;         /* Rounded corners */
-          text-align: center;         /* Center align text */
-         max-width: 100%;            /* Prevent the box from being too wide */
-         word-wrap: break-word;      /* Break long words to prevent overflow */
+         display: inline-block;      
+          font-size: 30px;           
+           color: #333;            
+            font-weight: bold;       
+         padding: 15px;           
+         border: 4px groove #ccc;    
+         background-color: #f9f9f9;  
+          border-radius: 10px;        
+          text-align: center;       
+         max-width: 100%;           
+         word-wrap: break-word;    
 }
         #counter {
             font-size: 24px;
@@ -54,7 +54,7 @@
             font-size: 20px;
         }
 
-        /* Modal Styles */
+
         #modal, #previous-rolls-modal {
             position: fixed;
             top: 0;
@@ -89,12 +89,12 @@
         }
 
         #counter-container {
-            border: 2px solid #ddd; /* Border color */
-           padding: 10px;          /* Padding inside the box */
-         background-color: #fff; /* Background color */
-         border-radius: 5px;     /* Rounded corners */
-         margin-bottom: 20px;    /* Spacing below the counter */
-         width: fit-content;      /* Adjust width based on content */
+            border: 2px solid #ddd; 
+           padding: 10px;          
+         background-color: #fff; 
+         border-radius: 5px;    
+         margin-bottom: 20px; 
+         width: fit-content;     
         }
 
 
@@ -118,7 +118,7 @@
         }
 
         #close-rolls-btn {
-            background-color: rgba(255, 0, 0, 0.733); /* Change to your desired color */
+            background-color: rgba(255, 0, 0, 0.733); 
              color: white;
               border: none;
              padding: 10px 15px;
@@ -127,7 +127,7 @@
         }
 
         #close-rolls-btn:hover {
-             background-color: darkred; /* Darker shade on hover */
+             background-color: darkred; 
         }
 
 
@@ -145,20 +145,19 @@
 
         /* Group Styles */
         .group {
-         display: inline-block; /* This allows the box to resize with content */
-         border: 1px solid #ddd; /* Add border */
-         padding: 10px; /* Padding inside the box */
-         margin: 10px; /* Margin around the box */
-         border-radius: 5px; /* Rounded corners */
-         width: auto; /* Automatically resize based on content */
+         display: inline-block; 
+         border: 1px solid #ddd; 
+         padding: 10px;
+         margin: 10px; 
+         border-radius: 5px; 
+         width: auto;
         }
 
         .option-line {
-        display: flex; /* Use flexbox for options */
-         justify-content: space-between; /* Space between text and checkbox */
-         align-items: center; /* Center alignment */
-         margin-top: 5px; /* Space above each option */
-        }
+        display: flex; 
+         justify-content: space-between; 
+         align-items: center; 
+         margin-top: 5px;
 
         .group-header, .group-footer {
             font-weight: bold;
@@ -193,7 +192,6 @@
             text-decoration: line-through;
         }
 
-        /* Footer Option Line */
         .footer-line {
             display: flex;
             justify-content: space-between;
@@ -206,7 +204,6 @@
             margin-left: 10px;
         }
 
-        /* Previous Rolls Styles */
         #previous-rolls-list {
             max-height: 300px;
             width: auto;
@@ -222,7 +219,7 @@
         }
 
         .roll-item span {
-            width: calc(100% - 100px); /* Adjust width to fit layout */
+            width: calc(100% - 100px); 
         }
     </style>
 </head>
@@ -357,44 +354,44 @@
     <style>
         .grid-container {
             display: grid;
-            grid-template-columns: repeat(5, 1fr);  /* 5 columns */
-            grid-template-rows: repeat(4, auto);     /* Auto height for each row */
-            gap: 10px;                                /* Space between buttons */
-            justify-items: center;  /* Center the buttons */
+            grid-template-columns: repeat(5, 1fr); 
+            grid-template-rows: repeat(4, auto);    
+            gap: 10px;                                
+            justify-items: center;  
             margin: 0 auto;
             max-width: fit-content;
         }
     
         button {
-            background-color: rgba(129, 142, 146, 0.973) ;    /* Button color */
-            color: black;                                 /* Text color */
-            border: 4px groove;                                /* Remove border */
-            border-radius: 8px;                         /* Rounded corners */
-            padding: 10px;                              /* Padding inside button */
-            text-align: center;        /* Center text */
-            cursor: pointer;           /* Pointer cursor on hover */
-            width: 300px;              /* Fixed width for buttons */
+            background-color: rgba(129, 142, 146, 0.973) ;   
+            color: black;                             
+            border: 4px groove;                             
+            border-radius: 8px;                    
+            padding: 10px;                             
+            text-align: center;      
+            cursor: pointer;          
+            width: 300px;            
         }
     
         button:hover {
-            background-color: #0056b3; /* Darker shade on hover */
+            background-color: #0056b3; 
         }
     
         .button-main-text {
             font-size: 24px;
-            font-weight: bold;         /* Bold main text */
-            display: block;            /* Block display for new line */
+            font-weight: bold;       
+            display: block;            
         }
 
         .button-mid-text {
             font-size: 22px;
-            text-decoration: underline;;         /* Bold main text */
-            display: block;            /* Block display for new line */
+            text-decoration: underline;;        
+            display: block;           
         }
     
         .button-sub-text {
-            font-size: 20px;           /* Smaller font size for subtext */
-            display: block;            /* Block display for new line */
+            font-size: 20px;          
+            display: block;            
         }
     </style>
 
@@ -451,8 +448,8 @@
 
             <div class="option-line" id="option8">
                 <span class="left-text">Tolstoj</span>
-                <span class="center-text">Assassination (1 Point)</span>
-                <input type="checkbox" onclick="updateCounter(1, 'option8', 'Mercury')">
+                <span class="center-text">Assassination (3 Points)</span>
+                <input type="checkbox" onclick="updateCounter(3, 'option8', 'Mercury')">
             </div>
 
             <div class="option-line" id="option9">
@@ -477,7 +474,7 @@
     <div class="option-line" id="footer">
         <span class="left-text">All Nodes</span>
         <span class="center-text">(15 Points)</span>
-        <input type="checkbox" onclick="updateCounter(0, 'footer', 'Mercury')">
+        <input type="checkbox" onclick="updateCounter(15, 'footer', 'Mercury')">
     </div>
 </div>
 
@@ -505,58 +502,95 @@
         </div>
 
         <div class="option-line" id="option4">
-            <span class="left-text">Lares</span>
-            <span class="center-text">Defence (1 Point)</span>
+            <span class="left-text">Cytherean</span>
+            <span class="center-text">Interception (1 Point)</span>
             <input type="checkbox" onclick="updateCounter(1, 'option4', 'Venus')">
         </div>
 
         <div class="option-line" id="option5">
-            <span class="left-text">Apollodorus</span>
-            <span class="center-text">Survival (1 Point)</span>
+            <span class="left-text">Kiliken</span>
+            <span class="center-text">Excavation (1 Point)</span>
             <input type="checkbox" onclick="updateCounter(1, 'option5', 'Venus')">
         </div>
 
         <div class="option-line" id="option6">
-            <span class="left-text">M Prime</span>
-            <span class="center-text">Exterminate (1 Point)</span>
+            <span class="left-text">V Prime</span>
+            <span class="center-text">Survival (1 Point)</span>
             <input type="checkbox" onclick="updateCounter(1, 'option6', 'Venus')">
         </div>
 
         <div class="option-line" id="option7">
-            <span class="left-text">Elion</span>
-            <span class="center-text">Capture (1 Point)</span>
-            <input type="checkbox" onclick="updateCounter(1, 'option7', 'Venus')">
+            <span class="left-text">Montes</span>
+            <span class="center-text">Exterminate (AW) (0 Points)</span>
+            <input type="checkbox" onclick="updateCounter(0, 'option7', 'Venus')">
         </div>
 
         <div class="option-line" id="option8">
-            <span class="left-text">Tolstoj</span>
-            <span class="center-text">Assassination (1 Point)</span>
+            <span class="left-text">Tessera</span>
+            <span class="center-text">Defense (1 Point)</span>
             <input type="checkbox" onclick="updateCounter(1, 'option8', 'Venus')">
         </div>
 
         <div class="option-line" id="option9">
-            <span class="left-text">Seusei</span>
+            <span class="left-text">Unda</span>
             <span class="center-text">Spy (1/2 Points)</span>
             <input type="checkbox" onclick="updateCounter(1, 'option9', 'Venus')">
             <input type="checkbox" onclick="updateCounter(1, 'option9', 'Venus')">
         </div>
 
         <div class="option-line" id="option10">
-            <span class="left-text">Boethius</span>
-            <span class="center-text">Mobile Defense (1 Point)</span>
+            <span class="left-text">Linea</span>
+            <span class="center-text">Rescue (1/2 Points)</span>
+            <input type="checkbox" onclick="updateCounter(1, 'option10', 'Venus')">
             <input type="checkbox" onclick="updateCounter(1, 'option10', 'Venus')">
         </div>
 
         <div class="option-line" id="option11">
-            <span class="left-text">Terminus</span>
-            <span class="center-text">Sabotage (1 Point)</span>
+            <span class="left-text">Venera</span>
+            <span class="center-text">Capture (1 Point)</span>
             <input type="checkbox" onclick="updateCounter(1, 'option11', 'Venus')">
+        </div>
+
+        <div class="option-line" id="option12">
+            <span class="left-text">Ishtar</span>
+            <span class="center-text">Sabotage (1 Point)</span>
+            <input type="checkbox" onclick="updateCounter(1, 'option12', 'Venus')">
+        </div>
+
+        <div class="option-line" id="option13">
+            <span class="left-text">Aphrodite</span>
+            <span class="center-text">Mobile Defense (1 Point)</span>
+            <input type="checkbox" onclick="updateCounter(1, 'option13', 'Venus')">
+        </div>
+
+        <div class="option-line" id="option14">
+            <span class="left-text">Fossa</span>
+            <span class="center-text">Assassination (3 Point)</span>
+            <input type="checkbox" onclick="updateCounter(3, 'option14', 'Venus')">
+        </div>
+
+        <div class="option-line" id="option15">
+            <span class="left-text">Malva</span>
+            <span class="center-text">Survival (Dark Sector) (1 Point)</span>
+            <input type="checkbox" onclick="updateCounter(1, 'option15', 'Venus')">
+        </div>
+
+        <div class="option-line" id="option16">
+            <span class="left-text">Romula</span>
+            <span class="center-text">Defense (Dark Sector) (1 Point)</span>
+            <input type="checkbox" onclick="updateCounter(1, 'option16', 'Venus')">
+        </div>
+
+        <div class="option-line" id="option17">
+            <span class="left-text">Orb Vallis</span>
+            <span class="center-text">Open World (0 Points)</span>
+            <input type="checkbox" onclick="updateCounter(1, 'option17', 'Venus')">
         </div>
 
 <div class="option-line" id="footer">
     <span class="left-text">All Nodes</span>
-    <span class="center-text">(15 Points))</span>
-    <input type="checkbox" onclick="updateCounter(0, 'footer', 'Venus')">
+    <span class="center-text">(15 Points)</span>
+    <input type="checkbox" onclick="updateCounter(15, 'footer', 'Venus')">
 </div>
 </div>
 
@@ -699,19 +733,19 @@
         }
 
         function updateCounter(points, optionId, groupId) {
-    let option = document.getElementById(optionId); // Get the current option line
-    let checkboxes = option.querySelectorAll('input[type="checkbox"]'); // Select all checkboxes in the line
+    let option = document.getElementById(optionId); 
+    let checkboxes = option.querySelectorAll('input[type="checkbox"]'); 
 
-    // Gray out the individual option line if at least one checkbox is checked
+   
     let anyChecked = Array.from(checkboxes).some(checkbox => checkbox.checked);
 
     if (anyChecked) {
-        option.style.backgroundColor = 'lightgray'; // Gray out the specific option line
+        option.style.backgroundColor = 'lightgray'; 
     } else {
-        option.style.backgroundColor = ''; // Restore the background if unchecked
+        option.style.backgroundColor = ''; 
     }
 
-    // Check if all checkboxes in the group are checked or if only the first checkbox in any line with multiple checkboxes is checked
+
     let group = document.getElementById(groupId);
     let allGroupCheckboxes = group.querySelectorAll('.option-line');
     let allChecked = true;
@@ -719,23 +753,20 @@
     allGroupCheckboxes.forEach(function(optionLine) {
         let lineCheckboxes = optionLine.querySelectorAll('input[type="checkbox"]');
         if (lineCheckboxes.length === 2) {
-            // If there are two checkboxes, check if at least the first checkbox is checked
             if (!lineCheckboxes[0].checked) {
-                allChecked = false; // If the first checkbox is not checked, set allChecked to false
+                allChecked = false; 
             }
         } else {
-            // For lines with only one checkbox, check if it is checked
             if (!lineCheckboxes[0].checked) {
                 allChecked = false;
             }
         }
     });
 
-    // Gray out the whole group if all lines meet the conditions
     if (allChecked) {
-        group.style.backgroundColor = 'lightgray'; // Gray out the entire group
+        group.style.backgroundColor = 'lightgray'; 
     } else {
-        group.style.backgroundColor = ''; // Restore original background if not all are checked
+        group.style.backgroundColor = ''; 
     }
 }
 
@@ -755,18 +786,18 @@
 
         function undoLastRoll() {
             if (previousRolls.length > 0) {
-                const lastRoll = previousRolls.pop(); // Get the last roll
-                counter += lastRoll.cost; // Add back the points
+                const lastRoll = previousRolls.pop(); 
+                counter += lastRoll.cost; 
                 updateCounterDisplay();
-                updatePreviousRollsDisplay(); // Update the display
-                document.getElementById('output').textContent = ''; // Clear the output
-                lastRollPoints = 0; // Reset last roll points
+                updatePreviousRollsDisplay(); 
+                document.getElementById('output').textContent = ''; 
+                lastRollPoints = 0; 
             }
         }
 
         function updatePreviousRollsDisplay() {
             const rollsList = document.getElementById('previous-rolls-list');
-            rollsList.innerHTML = ''; // Clear previous rolls display
+            rollsList.innerHTML = ''; 
 
             previousRolls.forEach((roll, index) => {
                 const rollItem = document.createElement('div');
