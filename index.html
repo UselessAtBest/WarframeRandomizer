@@ -96,6 +96,8 @@
          margin-bottom: 20px;    /* Spacing below the counter */
          width: fit-content;      /* Adjust width based on content */
         }
+
+
         
         #close-modal-btn, #close-rolls-btn, #undo-btn {
             padding: 10px 20px;
@@ -138,6 +140,9 @@
             background-color: darkblue;
         }
 
+
+
+
         /* Group Styles */
         .group {
          display: inline-block; /* This allows the box to resize with content */
@@ -149,7 +154,7 @@
         }
 
         .option-line {
-           display: flex; /* Use flexbox for options */
+        display: flex; /* Use flexbox for options */
          justify-content: space-between; /* Space between text and checkbox */
          align-items: center; /* Center alignment */
          margin-top: 5px; /* Space above each option */
@@ -157,14 +162,30 @@
 
         .group-header, .group-footer {
             font-weight: bold;
+            font-size: 24px;
+            text-align: center;
+            padding-bottom: 12px;
         }
 
-        .option-line {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-top: 5px;
-        }
+        .left-text {
+           flex: 1;
+            text-align: left;
+            white-space: nowrap;
+            width: 200px;
+            font-weight: bold
+}
+
+         .center-text {
+          flex: 5;
+             text-align: center;
+             white-space: nowrap;
+             width: 175px;
+            
+}
+
+         input[type="checkbox"] {
+          margin-left: 10px;
+}
 
         .grayed-out {
             background-color: #e0e0e0;
@@ -178,6 +199,7 @@
             justify-content: space-between;
             align-items: center;
             margin-top: 10px;
+            font-size: 40px;
         }
 
         .footer-line input {
@@ -187,6 +209,7 @@
         /* Previous Rolls Styles */
         #previous-rolls-list {
             max-height: 300px;
+            width: auto;
             overflow-y: auto;
             margin-top: 10px;
         }
@@ -207,8 +230,9 @@
     <div style="display: flex; justify-content: space-between;">
         <h1>Random Line Selector with Counter</h1>
         <button id="previous-rolls-btn" onclick="togglePreviousRolls()">Previous Rolls</button>
-    </div>
 
+    </div>
+    </div>
     <div id="counter-container"> 
         <div id="counter">Counter: 100</div>
     </div>
@@ -378,72 +402,243 @@
     <div id="groups">
  
 
-        <!-- Repeat this group structure 18 more times for a total of 19 groups -->
-        <div class="group" id="group2">
-            <div class="group-header">Group 2 Header</div>
-            <div class="option-line" id="option4">
-                <span>Option 1 (5 points)</span>
-                <input type="checkbox" onclick="updateCounter(5, 'option4', 'group2')">
-            </div>
-            <div class="option-line" id="option5">
-                <span>Option 2 (10 points)</span>
-                <input type="checkbox" onclick="updateCounter(10, 'option5', 'group2')">
-            </div>
-            <div class="option-line" id="option6">
-                <span>Option 3 (15 points)</span>
-                <input type="checkbox" onclick="updateCounter(15, 'option6', 'group2')">
-            </div>
-            <div class="footer-line">
-                <span>Group 2 Footer (10 points)</span>
-                <input type="checkbox" onclick="updateCounter(10, 'footer-option2', 'group2')">
-            </div>
-        </div>
-
-        <div class="group" id="group3">
-            <div class="group-header">Group 3 Header</div>
-            <div class="option-line" id="option7">
-                <span>Option 1 (5 points)</span>
-                <input type="checkbox" onclick="updateCounter(5, 'option7', 'group3')">
-            </div>
-            <div class="option-line" id="option8">
-                <span>Option 2 (10 points)</span>
-                <input type="checkbox" onclick="updateCounter(10, 'option8', 'group3')">
-            </div>
-            <div class="option-line" id="option9">
-                <span>Option 3 (15 points)</span>
-                <input type="checkbox" onclick="updateCounter(15, 'option9', 'group3')">
-            </div>
-            <div class="footer-line">
-                <span>Group 3 Footer (15 points)</span>
-                <input type="checkbox" onclick="updateCounter(15, 'footer-option3', 'group3')">
-            </div>
-        </div>
-
-        <div class="group" id="group4">
-            <div class="group-header">Group 4 Header</div>
-            <div class="option-line" id="option10">
-                <span>Option 1 (5 points)</span>
-                <input type="checkbox" onclick="updateCounter(5, 'option10', 'group4')">
-            </div>
-            <div class="option-line" id="option11">
-                <span>Option 2 (10 points)</span>
-                <input type="checkbox" onclick="updateCounter(10, 'option11', 'group4')">
-            </div>
-            <div class="option-line" id="option12">
-                <span>Option 3 (15 points)</span>
-                <input type="checkbox" onclick="updateCounter(15, 'option12', 'group4')">
-            </div>
-            <div class="footer-line">
-                <span>Group 3 Footer (15 points)</span>
-                <input type="checkbox" onclick="updateCounter(15, 'footer-option4', 'group4')">
-            </div>
-        </div>
-
-        <!-- Repeat this group structure for additional groups -->
+    
+        <div class="group" id="Mercury">
+            <div class="group-header">Mercury (11 Mission)</div>
         
+            <div class="option-line" id="option1">
+                <span class="left-text">Pantheon</span>
+                <span class="center-text">Exterminate (1 Point)</span>
+                <input type="checkbox" onclick="updateCounter(1, 'option1', 'Mercury')">
+            </div>
+        
+            <div class="option-line" id="option2">
+                <span class="left-text">Caloris</span>
+                <span class="center-text">Rescue (1/2 Points)</span>
+                <input type="checkbox" onclick="updateCounter(1, 'option2', 'Mercury')"> 
+                <input type="checkbox" onclick="updateCounter(1, 'option2', 'Mercury')"> 
+            </div>
+            
+            <div class="option-line" id="option3">
+                <span class="left-text">Odin</span>
+                <span class="center-text">Interception (1 Point)</span>
+                <input type="checkbox" onclick="updateCounter(1, 'option3', 'Mercury')">
+            </div>
+
+            <div class="option-line" id="option4">
+                <span class="left-text">Lares</span>
+                <span class="center-text">Defence (1 Point)</span>
+                <input type="checkbox" onclick="updateCounter(1, 'option4', 'Mercury')">
+            </div>
+
+            <div class="option-line" id="option5">
+                <span class="left-text">Apollodorus</span>
+                <span class="center-text">Survival (1 Point)</span>
+                <input type="checkbox" onclick="updateCounter(1, 'option5', 'Mercury')">
+            </div>
+
+            <div class="option-line" id="option6">
+                <span class="left-text">M Prime</span>
+                <span class="center-text">Exterminate (1 Point)</span>
+                <input type="checkbox" onclick="updateCounter(1, 'option6', 'Mercury')">
+            </div>
+
+            <div class="option-line" id="option7">
+                <span class="left-text">Elion</span>
+                <span class="center-text">Capture (1 Point)</span>
+                <input type="checkbox" onclick="updateCounter(1, 'option7', 'Mercury')">
+            </div>
+
+            <div class="option-line" id="option8">
+                <span class="left-text">Tolstoj</span>
+                <span class="center-text">Assassination (1 Point)</span>
+                <input type="checkbox" onclick="updateCounter(1, 'option8', 'Mercury')">
+            </div>
+
+            <div class="option-line" id="option9">
+                <span class="left-text">Seusei</span>
+                <span class="center-text">Spy (1/2 Points)</span>
+                <input type="checkbox" onclick="updateCounter(1, 'option9', 'Mercury')">
+                <input type="checkbox" onclick="updateCounter(1, 'option9', 'Mercury')">
+            </div>
+
+            <div class="option-line" id="option10">
+                <span class="left-text">Boethius</span>
+                <span class="center-text">Mobile Defense (1 Point)</span>
+                <input type="checkbox" onclick="updateCounter(1, 'option10', 'Mercury')">
+            </div>
+
+            <div class="option-line" id="option11">
+                <span class="left-text">Terminus</span>
+                <span class="center-text">Sabotage (1 Point)</span>
+                <input type="checkbox" onclick="updateCounter(1, 'option11', 'Mercury')">
+            </div>
+
+    <div class="option-line" id="footer">
+        <span class="left-text">All Nodes</span>
+        <span class="center-text">(15 Points)</span>
+        <input type="checkbox" onclick="updateCounter(0, 'footer', 'Mercury')">
+    </div>
+</div>
+
+
+
+    <div class="group" id="Venus">
+        <div class="group-header">Venus (14 Missions)</div>
+    
+        <div class="option-line" id="option1">
+            <span class="left-text">Fortuna</span>
+            <span class="center-text">Hub (0 Points)</span>
+            <input type="checkbox" onclick="updateCounter(0, 'option1', 'Venus')">
+        </div>
+    
+        <div class="option-line" id="option2">
+            <span class="left-text">Mercury Junction</span>
+            <span class="center-text">Junction (3 Points)</span>
+            <input type="checkbox" onclick="updateCounter(3, 'option2', 'Venus')"> 
+        </div>
+        
+        <div class="option-line" id="option3">
+            <span class="left-text">E Gate</span>
+            <span class="center-text">Exterminate (1 Point)</span>
+            <input type="checkbox" onclick="updateCounter(1, 'option3', 'Venus')">
+        </div>
+
+        <div class="option-line" id="option4">
+            <span class="left-text">Lares</span>
+            <span class="center-text">Defence (1 Point)</span>
+            <input type="checkbox" onclick="updateCounter(1, 'option4', 'Venus')">
+        </div>
+
+        <div class="option-line" id="option5">
+            <span class="left-text">Apollodorus</span>
+            <span class="center-text">Survival (1 Point)</span>
+            <input type="checkbox" onclick="updateCounter(1, 'option5', 'Venus')">
+        </div>
+
+        <div class="option-line" id="option6">
+            <span class="left-text">M Prime</span>
+            <span class="center-text">Exterminate (1 Point)</span>
+            <input type="checkbox" onclick="updateCounter(1, 'option6', 'Venus')">
+        </div>
+
+        <div class="option-line" id="option7">
+            <span class="left-text">Elion</span>
+            <span class="center-text">Capture (1 Point)</span>
+            <input type="checkbox" onclick="updateCounter(1, 'option7', 'Venus')">
+        </div>
+
+        <div class="option-line" id="option8">
+            <span class="left-text">Tolstoj</span>
+            <span class="center-text">Assassination (1 Point)</span>
+            <input type="checkbox" onclick="updateCounter(1, 'option8', 'Venus')">
+        </div>
+
+        <div class="option-line" id="option9">
+            <span class="left-text">Seusei</span>
+            <span class="center-text">Spy (1/2 Points)</span>
+            <input type="checkbox" onclick="updateCounter(1, 'option9', 'Venus')">
+            <input type="checkbox" onclick="updateCounter(1, 'option9', 'Venus')">
+        </div>
+
+        <div class="option-line" id="option10">
+            <span class="left-text">Boethius</span>
+            <span class="center-text">Mobile Defense (1 Point)</span>
+            <input type="checkbox" onclick="updateCounter(1, 'option10', 'Venus')">
+        </div>
+
+        <div class="option-line" id="option11">
+            <span class="left-text">Terminus</span>
+            <span class="center-text">Sabotage (1 Point)</span>
+            <input type="checkbox" onclick="updateCounter(1, 'option11', 'Venus')">
+        </div>
+
+<div class="option-line" id="footer">
+    <span class="left-text">All Nodes</span>
+    <span class="center-text">(15 Points))</span>
+    <input type="checkbox" onclick="updateCounter(0, 'footer', 'Venus')">
+</div>
+</div>
+
+<div class="group" id="Mercury">
+    <div class="group-header">Mercury (11 Mission)</div>
+
+    <div class="option-line" id="option1">
+        <span class="left-text">Pantheon</span>
+        <span class="center-text">Exterminate (1 Point)</span>
+        <input type="checkbox" onclick="updateCounter(1, 'option1', 'Mercury')">
     </div>
 
-<!-- Modal for Previous Rolls -->
+    <div class="option-line" id="option2">
+        <span class="left-text">Caloris</span>
+        <span class="center-text">Rescue (1/2 Points)</span>
+        <input type="checkbox" onclick="updateCounter(1, 'option2', 'Mercury')"> 
+        <input type="checkbox" onclick="updateCounter(1, 'option2', 'Mercury')"> 
+    </div>
+    
+    <div class="option-line" id="option3">
+        <span class="left-text">Odin</span>
+        <span class="center-text">Interception (1 Point)</span>
+        <input type="checkbox" onclick="updateCounter(1, 'option3', 'Mercury')">
+    </div>
+
+    <div class="option-line" id="option4">
+        <span class="left-text">Lares</span>
+        <span class="center-text">Defence (1 Point)</span>
+        <input type="checkbox" onclick="updateCounter(1, 'option4', 'Mercury')">
+    </div>
+
+    <div class="option-line" id="option5">
+        <span class="left-text">Apollodorus</span>
+        <span class="center-text">Survival (1 Point)</span>
+        <input type="checkbox" onclick="updateCounter(1, 'option5', 'Mercury')">
+    </div>
+
+    <div class="option-line" id="option6">
+        <span class="left-text">M Prime</span>
+        <span class="center-text">Exterminate (1 Point)</span>
+        <input type="checkbox" onclick="updateCounter(1, 'option6', 'Mercury')">
+    </div>
+
+    <div class="option-line" id="option7">
+        <span class="left-text">Elion</span>
+        <span class="center-text">Capture (1 Point)</span>
+        <input type="checkbox" onclick="updateCounter(1, 'option7', 'Mercury')">
+    </div>
+
+    <div class="option-line" id="option8">
+        <span class="left-text">Tolstoj</span>
+        <span class="center-text">Assassination (1 Point)</span>
+        <input type="checkbox" onclick="updateCounter(1, 'option8', 'Mercury')">
+    </div>
+
+    <div class="option-line" id="option9">
+        <span class="left-text">Seusei</span>
+        <span class="center-text">Spy (1/2 Points)</span>
+        <input type="checkbox" onclick="updateCounter(1, 'option9', 'Mercury')">
+        <input type="checkbox" onclick="updateCounter(1, 'option9', 'Mercury')">
+    </div>
+
+    <div class="option-line" id="option10">
+        <span class="left-text">Boethius</span>
+        <span class="center-text">Mobile Defense (1 Point)</span>
+        <input type="checkbox" onclick="updateCounter(1, 'option10', 'Mercury')">
+    </div>
+
+    <div class="option-line" id="option11">
+        <span class="left-text">Terminus</span>
+        <span class="center-text">Sabotage (1 Point)</span>
+        <input type="checkbox" onclick="updateCounter(1, 'option11', 'Mercury')">
+    </div>
+
+<div class="option-line" id="footer">
+<span class="left-text">All Nodes</span>
+<span class="center-text">(15 Points))</span>
+<input type="checkbox" onclick="updateCounter(0, 'footer', 'Mercury')">
+</div>
+
+
+
 <div id="previous-rolls-modal">
     <div id="previous-rolls-content">
         <div id="previous-rolls-header" style="display: flex; justify-content: space-between; align-items: center;">
@@ -461,8 +656,15 @@
 
 
 
+
+
+
     <script>
-        let counter = 100;
+       
+       
+       
+       
+       let counter = 100;
         let previousRolls = [];
         let lastRollPoints = 0;
 
@@ -496,19 +698,47 @@
             }
         }
 
-        function updateCounter(value, optionId, groupId) {
-            const checkbox = document.querySelector(`#${optionId} input[type="checkbox"]`);
-            if (checkbox.checked) {
-                counter += value;
-                updateCounterDisplay();
-                document.getElementById(optionId).classList.add('grayed-out');
+        function updateCounter(points, optionId, groupId) {
+    let option = document.getElementById(optionId); // Get the current option line
+    let checkboxes = option.querySelectorAll('input[type="checkbox"]'); // Select all checkboxes in the line
 
-                const allChecked = [...document.querySelectorAll(`#${groupId} input[type="checkbox"]`)].every(input => input.checked);
-                if (allChecked) {
-                    document.getElementById(groupId).classList.add('grayed-out');
-                }
+    // Gray out the individual option line if at least one checkbox is checked
+    let anyChecked = Array.from(checkboxes).some(checkbox => checkbox.checked);
+
+    if (anyChecked) {
+        option.style.backgroundColor = 'lightgray'; // Gray out the specific option line
+    } else {
+        option.style.backgroundColor = ''; // Restore the background if unchecked
+    }
+
+    // Check if all checkboxes in the group are checked or if only the first checkbox in any line with multiple checkboxes is checked
+    let group = document.getElementById(groupId);
+    let allGroupCheckboxes = group.querySelectorAll('.option-line');
+    let allChecked = true;
+
+    allGroupCheckboxes.forEach(function(optionLine) {
+        let lineCheckboxes = optionLine.querySelectorAll('input[type="checkbox"]');
+        if (lineCheckboxes.length === 2) {
+            // If there are two checkboxes, check if at least the first checkbox is checked
+            if (!lineCheckboxes[0].checked) {
+                allChecked = false; // If the first checkbox is not checked, set allChecked to false
+            }
+        } else {
+            // For lines with only one checkbox, check if it is checked
+            if (!lineCheckboxes[0].checked) {
+                allChecked = false;
             }
         }
+    });
+
+    // Gray out the whole group if all lines meet the conditions
+    if (allChecked) {
+        group.style.backgroundColor = 'lightgray'; // Gray out the entire group
+    } else {
+        group.style.backgroundColor = ''; // Restore original background if not all are checked
+    }
+}
+
 
         function updateCounterDisplay() {
             document.getElementById('counter').textContent = `Counter: ${counter}`;
@@ -550,9 +780,9 @@
             document.getElementById('modal').style.display = 'none';
         }
 
-        window.onload = function() {
-            document.getElementById('modal').style.display = 'flex';
-        };
+
+
+
     </script>
 </body>
 </html>
