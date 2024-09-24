@@ -1,7 +1,24 @@
 <h2>Welcome to the first ever QTCC Creator Clash!</h2> 
-<p><strike>First click on File > Creat a Copy of this spreadsheet. </strike></p>
-It's what you'll use to track point totals and mission completion progress throughout the month. This is an on your honor system. So please be cool. No cheating. You'll be streaming anyways so chat will make sure you're not cheating, <b>RIGHT CHAT!?</b> 
-
+This is an on your honor system. So please be cool. No cheating. You'll be streaming anyways, so chat will make sure you're not cheating, <b><i>RIGHT CHAT!?</i></b> 
+<br>
+<br>Objective is to defeat every boss and end with the Zealoid Prelate.
+<br>You start on Mantle, then work your way nodes to get to the junctions and bosses. 
+<br> The routes you take and nodes you clear are up to you!
+<br>
+<br>Use the check boxes below to check off a node as you complete them. 
+<br>If you complete a Spy mission with no vault alarms going off, or a rescue mission without the guards being alerted,
+<br> you get two points instead of one, tick both boxes for the extra point!
+<br>
+<br> Feel free to take this on with another streamer or some people in your community! However, they must follow the same rules and roll their own randomizer as well.
 <h3> RULES: </h3>
-1. Once you complete Zealoid Prelate you must show Warframe and all weapon mods in the same clip as the end mission screen.<br> This is so we can go back at the end of the month and see what everyone used to complete the challenge and talk about it on stream. </br>
-<br>2. Have fun!</br>
+1. Once you complete Zealoid Prelate you must show your Warframe and all weapon mods in the same clip as the end mission screen.<br> This is so we can go back at the end of the month and see what everyone used to complete the challenge and talk about it on stream. </br>
+<br>2. <strong> Have fun! </strong></br>
+<br>
+<br> If you have any questions feel free to DM Slivarito <i class="fa-brands fa-twitch"> </i> on Discord <i class="fa-brands fa-discord"></i> or <a href="https://x.com/Slivarito" target="_blank">Twitter</a> <i class="fa-brands fa-twitter"></i>, IGN is the same everywhere.
+<br>
+<br> This page wont save, so make sure to take a screenshot <i class="fa-solid fa-camera"></i> of your progress, and your rolls so far (in the previous rolls menu)
+<br> to make sure you don't lose your progress, <small><i> or just check your vod. </i> </small>
+<br> 
+<br> <h><strong> Good Luck!
+
+
