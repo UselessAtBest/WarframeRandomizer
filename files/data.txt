@@ -1,6 +1,10 @@
 <h2>Welcome to the first ever QTCC Creator Clash!</h2> 
 This is an on your honor system. So please be cool. No cheating. You'll be streaming anyways, so chat will make sure you're not cheating, <b><i>RIGHT CHAT!?</i></b> 
 <br>
+<br>You begin with Mag/Excal/Volt, and your pick of an MK1 weapon, or Lato/Skana as well. 
+<br>You may pick any companion you want but it can only have Vacuum and (Primed) Animal Instinct to start. 
+<br> <small> No <a href="https://warframe.fandom.com/wiki/Assault_Mode" target="_blank">assault mode</a>, so no weapons. </small>
+<br>
 <br>Objective is to defeat every boss and end with the Zealoid Prelate.
 <br>You start on Mantle, then work your way nodes to get to the junctions and bosses. 
 <br> The routes you take and nodes you clear are up to you!
