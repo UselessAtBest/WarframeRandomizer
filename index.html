@@ -475,7 +475,7 @@
     <div id="groups"></div>
 
     <script>
-        const groupNames = ['mercury','venus','earth','mars','phobos','ceres','jupiter','europa','saturn','uranus','neptune','pluto']; 
+        const groupNames = ['mercury','venus','earth','mars','phobos','ceres','jupiter','europa','saturn','uranus','neptune','pluto','eris','sedna','void','lua','deimos','kuva_fortress','zariman']; 
         const groupFiles = groupNames.map(name => `files/nodes/${name}.html`);
     
         Promise.all(groupFiles.map(file => fetch(file).then(response => {
