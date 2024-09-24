@@ -9,13 +9,15 @@
         body {
             font-family: Arial, sans-serif;
             padding: 20px;
-            background-color: #f9f9f9;
+            background-color: #232428;
         }
         .grid-container {
             display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 10px;
-            margin-top: 20px;
+            grid-template-columns: repeat(1, 1fr);
+            gap: 1000px;
+            align-content: start;
+            grid-auto-flow: dense;
+            margin-top: 2000px;
         }
         button {
             padding: 15px;
@@ -25,16 +27,17 @@
         #output-container {
          display: flex;               
          justify-content: center;    
+         color: #BCBCBC;
 }
 
     #output {
          display: inline-block;      
           font-size: 30px;           
-           color: #333;            
+           color: #BCBCBC;            
             font-weight: bold;       
          padding: 15px;           
-         border: 4px groove #ccc;    
-         background-color: #f9f9f9;  
+         border: 4px groove #1E1F22;    
+         background-color: #232428;  
           border-radius: 10px;        
           text-align: center;       
          max-width: 100%;           
@@ -69,7 +72,7 @@
         }
 
         #modal-content, #previous-rolls-content {
-            background-color: white;
+            background-color: #BCBCBC;
             padding: 30px;
             border-radius: 10px;
             text-align: center;
@@ -89,12 +92,13 @@
         }
 
         #counter-container {
-            border: 2px solid #ddd; 
+            border: 2px solid #000000; 
            padding: 10px;          
-         background-color: #fff; 
+         background-color: #1E1F22; 
          border-radius: 5px;    
          margin-bottom: 20px; 
-         width: fit-content;     
+         width: fit-content;
+         color: #BCBCBC;
         }
 
 
@@ -110,7 +114,7 @@
 
         #close-modal-btn {
             background-color: red;
-            color: white;
+            color: #BCBCBC;
         }
 
         #close-modal-btn:hover {
@@ -133,7 +137,7 @@
 
         #undo-btn {
             background-color: blue;
-            color: white;
+            color: rgb(95, 91, 91);
         }
 
         #undo-btn:hover {
@@ -145,50 +149,71 @@
 
         /* Group Styles */
         .group {
-         display: inline-block; 
-         border: 1px solid #ddd; 
+         display:inline-block ; 
+         border: 4px solid #1F1F1F; 
          padding: 10px;
          margin: 10px; 
          border-radius: 5px; 
-         width: auto;
+         vertical-align: top; 
+         width: 415px;
         }
-
+        
+         
+        
         .option-line {
-        display: flex; 
-         justify-content: space-between; 
+        display:flex ; 
+        flex-direction: row;
+        justify-content: space-between;
          align-items: center; 
          margin-top: 5px;
-
+         width: 100%;
+         position: relative;
+         color: #BCBCBC;
+        }
+        
+        
         .group-header, .group-footer {
             font-weight: bold;
             font-size: 24px;
             text-align: center;
             padding-bottom: 12px;
+            color: #CCCCCC;
         }
 
         .left-text {
-           flex: 1;
             text-align: left;
             white-space: nowrap;
-            width: 200px;
-            font-weight: bold
+            margin-right: 10px;
+            font-weight: bold;
+
 }
 
-         .center-text {
-          flex: 5;
-             text-align: center;
-             white-space: nowrap;
-             width: 175px;
-            
-}
+        .center-wrapper{
+            position: absolute;
+            left: 35%;
+            transform: translateX(0%);
+            text-align: center;
+        }
+
+        .right-wrapper{
+            position: absolute;
+            right: 0%;
+        }
+
+        .center-text {
+            white-space: nowrap;
+
+}      
+
+
 
          input[type="checkbox"] {
-          margin-left: 10px;
+          margin-left: 0%;
 }
 
         .grayed-out {
-            background-color: #e0e0e0;
-            color: #666;
+            background-color: #353638;
+            color: #353638;
             text-decoration: line-through;
         }
 
@@ -223,19 +248,20 @@
         }
     </style>
 </head>
-<body>
+<body style="background-color: #313239;">
+
     <div style="display: flex; justify-content: space-between;">
-        <h1>Random Line Selector with Counter</h1>
+        <h1>QTCC random thingy!</h1>
         <button id="previous-rolls-btn" onclick="togglePreviousRolls()">Previous Rolls</button>
 
     </div>
     </div>
     <div id="counter-container"> 
-        <div id="counter">Counter: 100</div>
+        <div id="counter">Counter: 50</div>
     </div>
     
     <div id="output-container">
-        <div id="output">Random Line will appear here</div>
+        <div id="output">Roll a category to begin!</div>
 
     </div>
     
@@ -244,104 +270,105 @@
 
     <div class="grid-container">
 
-        <button onclick="getRandomLine('10-Warframe.txt')">
+        <button onclick="getRandomLine('files/warframe/10-Warframe.txt')">
             <span class="button-main-text">Warframe</span>
             <span class="button-sub-text">(10 points)</span>
         </button>
-        <button onclick="getRandomLine('5-WarframeModHighCost.txt')">
-            <span class="button-main-text">Warframe Mod</span>
-            <span class="button-mid-text">High Cost</span>
-            <span class="button-sub-text">(5 points)</span>
-        </button>
-        <button onclick="getRandomLine('3-WarframeModLowCost.txt')">
-            <span class="button-main-text">Warframe Mod</span>
-            <span class="button-mid-text">Low Cost</span>
-            <span class="button-sub-text">(3 points)</span>
-        </button>
-        <button onclick="getRandomLine('1-WarframeModUtility.txt')">
-            <span class="button-main-text">Warframe Mod</span>
-            <span class="button-mid-text">Utility</span>
-            <span class="button-sub-text">(1 point)</span>
-        </button>
-        <button onclick="getRandomLine('3-WarframeModAura.txt')">
+        <button onclick="getRandomLine('files/warframe/3-WarframeModAura.txt')">
             <span class="button-main-text">Warframe Mod</span>
             <span class="button-mid-text">Aura</span>
             <span class="button-sub-text">(3 points)</span>
         </button>
+        <button onclick="getRandomLine('files/warframe/5-WarframeModHighCost.txt')">
+            <span class="button-main-text">Warframe Mod</span>
+            <span class="button-mid-text">High Cost</span>
+            <span class="button-sub-text">(5 points)</span>
+        </button>
+        <button onclick="getRandomLine('files/warframe/3-WarframeModLowCost.txt')">
+            <span class="button-main-text">Warframe Mod</span>
+            <span class="button-mid-text">Low Cost</span>
+            <span class="button-sub-text">(3 points)</span>
+        </button>
+        <button onclick="getRandomLine('files/warframe/1-WarframeModUtility.txt')">
+            <span class="button-main-text">Warframe Mod</span>
+            <span class="button-mid-text">Utility</span>
+            <span class="button-sub-text">(1 point)</span>
+        </button>
 
-        <button onclick="getRandomLine('10-PrimaryWeaponHighCost.txt')">
+
+        <button onclick="getRandomLine('files/primary/10-PrimaryWeaponHighCost.txt')">
             <span class="button-main-text">Primary Weapon</span>
             <span class="button-mid-text">High Cost</span>
             <span class="button-sub-text">(10 points)</span>
         </button>
-        <button onclick="getRandomLine('5-PrimaryWeaponLowCost.txt')">
+        <button onclick="getRandomLine('files/primary/5-PrimaryWeaponLowCost.txt')">
             <span class="button-main-text">Primary Weapon Mod</span>
             <span class="button-mid-text">Low Cost Cost</span>
             <span class="button-sub-text">(5 points)</span>
         </button>
-        <button onclick="getRandomLine('5-PrimaryWeaponModHighCost.txt')">
+        <button onclick="getRandomLine('files/primary/5-PrimaryWeaponModHighCost.txt')">
             <span class="button-main-text">Primary Weapon Mod</span>
             <span class="button-mid-text">High Cost</span>
             <span class="button-sub-text">(5 points)</span>
         </button>
-        <button onclick="getRandomLine('3-PrimaryWeaponModLowCost.txt')">
+        <button onclick="getRandomLine('files/primary/3-PrimaryWeaponModLowCost.txt')">
             <span class="button-main-text">Primary Weapon Mod</span>
             <span class="button-mid-text">Low Cost</span>
             <span class="button-sub-text">(3 points)</span>
         </button>
-        <button onclick="getRandomLine('1-PrimaryWeaponModUtility.txt')">
+        <button onclick="getRandomLine('files/primary/1-PrimaryWeaponModUtility.txt')">
             <span class="button-main-text">Primary Weapon Mod</span>
             <span class="button-mid-text">Utility</span>
             <span class="button-sub-text">(1 points)</span>
         </button>
 
-        <button onclick="getRandomLine('10-SecondaryWeaponHighCost.txt')">
+        <button onclick="getRandomLine('files/secondary/10-SecondaryWeaponHighCost.txt')">
             <span class="button-main-text">Secondary Weapon</span>
             <span class="button-mid-text">High Cost</span>
             <span class="button-sub-text">(10 points)</span>
         </button>
-        <button onclick="getRandomLine('5-SecondaryWeaponLowCost.txt')">
+        <button onclick="getRandomLine('files/secondary/5-SecondaryWeaponLowCost.txt')">
             <span class="button-main-text">Secondary Weapon Mod</span>
             <span class="button-mid-text">Low Cost Cost</span>
             <span class="button-sub-text">(5 points)</span>
         </button>
-        <button onclick="getRandomLine('5-SecondaryWeaponModHighCost.txt')">
+        <button onclick="getRandomLine('files/secondary/5-SecondaryWeaponModHighCost.txt')">
             <span class="button-main-text">Secondary Weapon Mod</span>
             <span class="button-mid-text">High Cost</span>
             <span class="button-sub-text">(5 points)</span>
         </button>
-        <button onclick="getRandomLine('3-SecondaryWeaponModLowCost.txt')">
+        <button onclick="getRandomLine('files/secondary/3-SecondaryWeaponModLowCost.txt')">
             <span class="button-main-text">Secondary Weapon Mod</span>
             <span class="button-mid-text">Low Cost</span>
             <span class="button-sub-text">(3 points)</span>
         </button>
-        <button onclick="getRandomLine('1-SecondaryWeaponModUtility.txt')">
+        <button onclick="getRandomLine('files/secondary/1-SecondaryWeaponModUtility.txt')">
             <span class="button-main-text">Secondary Weapon Mod</span>
             <span class="button-mid-text">Utility</span>
             <span class="button-sub-text">(1 points)</span>
         </button>
 
-        <button onclick="getRandomLine('10-MeleeWeaponHighCost.txt')">
+        <button onclick="getRandomLine('files/melee/10-MeleeWeaponHighCost.txt')">
             <span class="button-main-text">Melee Weapon</span>
             <span class="button-mid-text">High Cost</span>
             <span class="button-sub-text">(10 points)</span>
         </button>
-        <button onclick="getRandomLine('5-MeleeWeaponLowCost.txt')">
+        <button onclick="getRandomLine('files/melee/5-MeleeWeaponLowCost.txt')">
             <span class="button-main-text">Melee Weapon Mod</span>
             <span class="button-mid-text">Low Cost Cost</span>
             <span class="button-sub-text">(5 points)</span>
         </button>
-        <button onclick="getRandomLine('5-MeleeWeaponModHighCost.txt')">
+        <button onclick="getRandomLine('files/melee/5-MeleeWeaponModHighCost.txt')">
             <span class="button-main-text">Melee Weapon Mod</span>
             <span class="button-mid-text">High Cost</span>
             <span class="button-sub-text">(5 points)</span>
         </button>
-        <button onclick="getRandomLine('3-MeleeWeaponModLowCost.txt')">
+        <button onclick="getRandomLine('files/melee/3-MeleeWeaponModLowCost.txt')">
             <span class="button-main-text">Melee Weapon Mod</span>
             <span class="button-mid-text">Low Cost</span>
             <span class="button-sub-text">(3 points)</span>
         </button>
-        <button onclick="getRandomLine('1-MeleeWeaponModUtility.txt')">
+        <button onclick="getRandomLine('files/melee/1-MeleeWeaponModUtility.txt')">
             <span class="button-main-text">Melee Weapon Mod</span>
             <span class="button-mid-text">Utility</span>
             <span class="button-sub-text">(1 points)</span>
@@ -355,7 +382,8 @@
         .grid-container {
             display: grid;
             grid-template-columns: repeat(5, 1fr); 
-            grid-template-rows: repeat(4, auto);    
+            grid-template-rows: repeat(4, auto);
+            grid-auto-flow: dense;    
             gap: 10px;                                
             justify-items: center;  
             margin: 0 auto;
@@ -363,9 +391,10 @@
         }
     
         button {
-            background-color: rgba(129, 142, 146, 0.973) ;   
-            color: black;                             
-            border: 4px groove;                             
+            background-color: rgb(76, 29, 119);  /*----BUTTON COLOUR: ---- */
+            color: #BCBCBC;                             
+            border: 4px groove;
+            border-color: #333;                             
             border-radius: 8px;                    
             padding: 10px;                             
             text-align: center;      
@@ -374,10 +403,10 @@
         }
     
         button:hover {
-            background-color: #0056b3; 
+            background-color: #430E75; 
         }
     
-        .button-main-text {
+        .button-main-text { 
             font-size: 24px;
             font-weight: bold;       
             display: block;            
@@ -396,280 +425,22 @@
     </style>
 
     <!-- Groups of Options -->
-    <div id="groups">
- 
+    <div id="groups"></div>
 
+    <script>
+        const groupNames = ['mercury','venus','earth','mars','phobos','ceres','jupiter','europa','saturn','uranus','neptune','pluto']; 
+        const groupFiles = groupNames.map(name => `files/nodes/${name}.html`);
     
-        <div class="group" id="Mercury">
-            <div class="group-header">Mercury (11 Mission)</div>
-        
-            <div class="option-line" id="option1">
-                <span class="left-text">Pantheon</span>
-                <span class="center-text">Exterminate (1 Point)</span>
-                <input type="checkbox" onclick="updateCounter(1, 'option1', 'Mercury')">
-            </div>
-        
-            <div class="option-line" id="option2">
-                <span class="left-text">Caloris</span>
-                <span class="center-text">Rescue (1/2 Points)</span>
-                <input type="checkbox" onclick="updateCounter(1, 'option2', 'Mercury')"> 
-                <input type="checkbox" onclick="updateCounter(1, 'option2', 'Mercury')"> 
-            </div>
-            
-            <div class="option-line" id="option3">
-                <span class="left-text">Odin</span>
-                <span class="center-text">Interception (1 Point)</span>
-                <input type="checkbox" onclick="updateCounter(1, 'option3', 'Mercury')">
-            </div>
+        Promise.all(groupFiles.map(file => fetch(file).then(response => {
+            if (!response.ok) throw new Error('Network response was not ok');
+            return response.text();
+        })))
+        .then(contents => {
+            document.getElementById('groups').innerHTML = contents.join('');
+        })
+        .catch(error => console.error('Error loading external files:', error));
+    </script>
 
-            <div class="option-line" id="option4">
-                <span class="left-text">Lares</span>
-                <span class="center-text">Defence (1 Point)</span>
-                <input type="checkbox" onclick="updateCounter(1, 'option4', 'Mercury')">
-            </div>
-
-            <div class="option-line" id="option5">
-                <span class="left-text">Apollodorus</span>
-                <span class="center-text">Survival (1 Point)</span>
-                <input type="checkbox" onclick="updateCounter(1, 'option5', 'Mercury')">
-            </div>
-
-            <div class="option-line" id="option6">
-                <span class="left-text">M Prime</span>
-                <span class="center-text">Exterminate (1 Point)</span>
-                <input type="checkbox" onclick="updateCounter(1, 'option6', 'Mercury')">
-            </div>
-
-            <div class="option-line" id="option7">
-                <span class="left-text">Elion</span>
-                <span class="center-text">Capture (1 Point)</span>
-                <input type="checkbox" onclick="updateCounter(1, 'option7', 'Mercury')">
-            </div>
-
-            <div class="option-line" id="option8">
-                <span class="left-text">Tolstoj</span>
-                <span class="center-text">Assassination (3 Points)</span>
-                <input type="checkbox" onclick="updateCounter(3, 'option8', 'Mercury')">
-            </div>
-
-            <div class="option-line" id="option9">
-                <span class="left-text">Seusei</span>
-                <span class="center-text">Spy (1/2 Points)</span>
-                <input type="checkbox" onclick="updateCounter(1, 'option9', 'Mercury')">
-                <input type="checkbox" onclick="updateCounter(1, 'option9', 'Mercury')">
-            </div>
-
-            <div class="option-line" id="option10">
-                <span class="left-text">Boethius</span>
-                <span class="center-text">Mobile Defense (1 Point)</span>
-                <input type="checkbox" onclick="updateCounter(1, 'option10', 'Mercury')">
-            </div>
-
-            <div class="option-line" id="option11">
-                <span class="left-text">Terminus</span>
-                <span class="center-text">Sabotage (1 Point)</span>
-                <input type="checkbox" onclick="updateCounter(1, 'option11', 'Mercury')">
-            </div>
-
-    <div class="option-line" id="footer">
-        <span class="left-text">All Nodes</span>
-        <span class="center-text">(15 Points)</span>
-        <input type="checkbox" onclick="updateCounter(15, 'footer', 'Mercury')">
-    </div>
-</div>
-
-
-
-    <div class="group" id="Venus">
-        <div class="group-header">Venus (14 Missions)</div>
-    
-        <div class="option-line" id="option1">
-            <span class="left-text">Fortuna</span>
-            <span class="center-text">Hub (0 Points)</span>
-            <input type="checkbox" onclick="updateCounter(0, 'option1', 'Venus')">
-        </div>
-    
-        <div class="option-line" id="option2">
-            <span class="left-text">Mercury Junction</span>
-            <span class="center-text">Junction (3 Points)</span>
-            <input type="checkbox" onclick="updateCounter(3, 'option2', 'Venus')"> 
-        </div>
-        
-        <div class="option-line" id="option3">
-            <span class="left-text">E Gate</span>
-            <span class="center-text">Exterminate (1 Point)</span>
-            <input type="checkbox" onclick="updateCounter(1, 'option3', 'Venus')">
-        </div>
-
-        <div class="option-line" id="option4">
-            <span class="left-text">Cytherean</span>
-            <span class="center-text">Interception (1 Point)</span>
-            <input type="checkbox" onclick="updateCounter(1, 'option4', 'Venus')">
-        </div>
-
-        <div class="option-line" id="option5">
-            <span class="left-text">Kiliken</span>
-            <span class="center-text">Excavation (1 Point)</span>
-            <input type="checkbox" onclick="updateCounter(1, 'option5', 'Venus')">
-        </div>
-
-        <div class="option-line" id="option6">
-            <span class="left-text">V Prime</span>
-            <span class="center-text">Survival (1 Point)</span>
-            <input type="checkbox" onclick="updateCounter(1, 'option6', 'Venus')">
-        </div>
-
-        <div class="option-line" id="option7">
-            <span class="left-text">Montes</span>
-            <span class="center-text">Exterminate (AW) (0 Points)</span>
-            <input type="checkbox" onclick="updateCounter(0, 'option7', 'Venus')">
-        </div>
-
-        <div class="option-line" id="option8">
-            <span class="left-text">Tessera</span>
-            <span class="center-text">Defense (1 Point)</span>
-            <input type="checkbox" onclick="updateCounter(1, 'option8', 'Venus')">
-        </div>
-
-        <div class="option-line" id="option9">
-            <span class="left-text">Unda</span>
-            <span class="center-text">Spy (1/2 Points)</span>
-            <input type="checkbox" onclick="updateCounter(1, 'option9', 'Venus')">
-            <input type="checkbox" onclick="updateCounter(1, 'option9', 'Venus')">
-        </div>
-
-        <div class="option-line" id="option10">
-            <span class="left-text">Linea</span>
-            <span class="center-text">Rescue (1/2 Points)</span>
-            <input type="checkbox" onclick="updateCounter(1, 'option10', 'Venus')">
-            <input type="checkbox" onclick="updateCounter(1, 'option10', 'Venus')">
-        </div>
-
-        <div class="option-line" id="option11">
-            <span class="left-text">Venera</span>
-            <span class="center-text">Capture (1 Point)</span>
-            <input type="checkbox" onclick="updateCounter(1, 'option11', 'Venus')">
-        </div>
-
-        <div class="option-line" id="option12">
-            <span class="left-text">Ishtar</span>
-            <span class="center-text">Sabotage (1 Point)</span>
-            <input type="checkbox" onclick="updateCounter(1, 'option12', 'Venus')">
-        </div>
-
-        <div class="option-line" id="option13">
-            <span class="left-text">Aphrodite</span>
-            <span class="center-text">Mobile Defense (1 Point)</span>
-            <input type="checkbox" onclick="updateCounter(1, 'option13', 'Venus')">
-        </div>
-
-        <div class="option-line" id="option14">
-            <span class="left-text">Fossa</span>
-            <span class="center-text">Assassination (3 Point)</span>
-            <input type="checkbox" onclick="updateCounter(3, 'option14', 'Venus')">
-        </div>
-
-        <div class="option-line" id="option15">
-            <span class="left-text">Malva</span>
-            <span class="center-text">Survival (Dark Sector) (1 Point)</span>
-            <input type="checkbox" onclick="updateCounter(1, 'option15', 'Venus')">
-        </div>
-
-        <div class="option-line" id="option16">
-            <span class="left-text">Romula</span>
-            <span class="center-text">Defense (Dark Sector) (1 Point)</span>
-            <input type="checkbox" onclick="updateCounter(1, 'option16', 'Venus')">
-        </div>
-
-        <div class="option-line" id="option17">
-            <span class="left-text">Orb Vallis</span>
-            <span class="center-text">Open World (0 Points)</span>
-            <input type="checkbox" onclick="updateCounter(1, 'option17', 'Venus')">
-        </div>
-
-<div class="option-line" id="footer">
-    <span class="left-text">All Nodes</span>
-    <span class="center-text">(15 Points)</span>
-    <input type="checkbox" onclick="updateCounter(15, 'footer', 'Venus')">
-</div>
-</div>
-
-<div class="group" id="Mercury">
-    <div class="group-header">Mercury (11 Mission)</div>
-
-    <div class="option-line" id="option1">
-        <span class="left-text">Pantheon</span>
-        <span class="center-text">Exterminate (1 Point)</span>
-        <input type="checkbox" onclick="updateCounter(1, 'option1', 'Mercury')">
-    </div>
-
-    <div class="option-line" id="option2">
-        <span class="left-text">Caloris</span>
-        <span class="center-text">Rescue (1/2 Points)</span>
-        <input type="checkbox" onclick="updateCounter(1, 'option2', 'Mercury')"> 
-        <input type="checkbox" onclick="updateCounter(1, 'option2', 'Mercury')"> 
-    </div>
-    
-    <div class="option-line" id="option3">
-        <span class="left-text">Odin</span>
-        <span class="center-text">Interception (1 Point)</span>
-        <input type="checkbox" onclick="updateCounter(1, 'option3', 'Mercury')">
-    </div>
-
-    <div class="option-line" id="option4">
-        <span class="left-text">Lares</span>
-        <span class="center-text">Defence (1 Point)</span>
-        <input type="checkbox" onclick="updateCounter(1, 'option4', 'Mercury')">
-    </div>
-
-    <div class="option-line" id="option5">
-        <span class="left-text">Apollodorus</span>
-        <span class="center-text">Survival (1 Point)</span>
-        <input type="checkbox" onclick="updateCounter(1, 'option5', 'Mercury')">
-    </div>
-
-    <div class="option-line" id="option6">
-        <span class="left-text">M Prime</span>
-        <span class="center-text">Exterminate (1 Point)</span>
-        <input type="checkbox" onclick="updateCounter(1, 'option6', 'Mercury')">
-    </div>
-
-    <div class="option-line" id="option7">
-        <span class="left-text">Elion</span>
-        <span class="center-text">Capture (1 Point)</span>
-        <input type="checkbox" onclick="updateCounter(1, 'option7', 'Mercury')">
-    </div>
-
-    <div class="option-line" id="option8">
-        <span class="left-text">Tolstoj</span>
-        <span class="center-text">Assassination (1 Point)</span>
-        <input type="checkbox" onclick="updateCounter(1, 'option8', 'Mercury')">
-    </div>
-
-    <div class="option-line" id="option9">
-        <span class="left-text">Seusei</span>
-        <span class="center-text">Spy (1/2 Points)</span>
-        <input type="checkbox" onclick="updateCounter(1, 'option9', 'Mercury')">
-        <input type="checkbox" onclick="updateCounter(1, 'option9', 'Mercury')">
-    </div>
-
-    <div class="option-line" id="option10">
-        <span class="left-text">Boethius</span>
-        <span class="center-text">Mobile Defense (1 Point)</span>
-        <input type="checkbox" onclick="updateCounter(1, 'option10', 'Mercury')">
-    </div>
-
-    <div class="option-line" id="option11">
-        <span class="left-text">Terminus</span>
-        <span class="center-text">Sabotage (1 Point)</span>
-        <input type="checkbox" onclick="updateCounter(1, 'option11', 'Mercury')">
-    </div>
-
-<div class="option-line" id="footer">
-<span class="left-text">All Nodes</span>
-<span class="center-text">(15 Points))</span>
-<input type="checkbox" onclick="updateCounter(0, 'footer', 'Mercury')">
-</div>
 
 
 
@@ -703,49 +474,61 @@
         let lastRollPoints = 0;
 
         function getRandomLine(fileName) {
-            const valueToSubtract = parseInt(fileName.split('-')[0]);
+    // Extract the base filename from the full path
+    const baseFileName = fileName.split('/').pop(); // Get the filename from the path
+    const valueToSubtract = parseInt(baseFileName.split('-')[0]); // Use the prefix of the filename
 
-            if (counter >= valueToSubtract) {
-                fetch(fileName)
-                    .then(response => response.text())
-                    .then(data => {
-                        const lines = data.split('\n');
-                        const randomLine = lines[Math.floor(Math.random() * lines.length)];
-                        
-                        lastRollPoints = valueToSubtract; // Store points used for the last roll
-                        counter -= valueToSubtract;
-                        previousRolls.push({ line: randomLine, cost: valueToSubtract }); // Add to previous rolls
+    if (counter >= valueToSubtract) {
+        fetch(fileName)
+            .then(response => response.text())
+            .then(data => {
+                const lines = data.split('\n');
+                const randomLine = lines[Math.floor(Math.random() * lines.length)];
+                
+                lastRollPoints = valueToSubtract; // Store points used for the last roll
+                counter -= valueToSubtract;
+                previousRolls.push({ line: randomLine, cost: valueToSubtract }); // Add to previous rolls
 
-                        updateCounterDisplay();
-                        document.getElementById('output').textContent = randomLine;
-                        document.getElementById('message').textContent = ''; 
+                updateCounterDisplay();
+                document.getElementById('output').textContent = randomLine;
+                document.getElementById('message').textContent = ''; 
 
-                        // Update previous rolls display
-                        updatePreviousRollsDisplay();
-                    })
-                    .catch(error => {
-                        console.error('Error fetching the file:', error);
-                        document.getElementById('output').textContent = 'Error fetching the file.';
-                    });
-            } else {
-                document.getElementById('message').textContent = 'Not enough points to roll this option!';
-            }
-        }
+                // Update previous rolls display
+                updatePreviousRollsDisplay();
+            })
+            .catch(error => {
+                console.error('Error fetching the file:', error);
+                document.getElementById('output').textContent = 'Error fetching the file.';
+            });
+    } else {
+        document.getElementById('message').textContent = 'Not enough points to roll this option!';
+    }
+}
 
         function updateCounter(points, optionId, groupId) {
     let option = document.getElementById(optionId); 
     let checkboxes = option.querySelectorAll('input[type="checkbox"]'); 
+    let isChecked = false; 
 
-   
-    let anyChecked = Array.from(checkboxes).some(checkbox => checkbox.checked);
+    checkboxes.forEach(checkbox => {
+        if (checkbox.checked) {
+            isChecked = true; 
+        }
+    });
 
-    if (anyChecked) {
-        option.style.backgroundColor = 'lightgray'; 
+    // Update the counter
+    if (isChecked) {
+        counter += points; // Subtract points if checked
+        option.style.backgroundColor = '#417249'; 
     } else {
+        counter -= points; // Add points back if unchecked
         option.style.backgroundColor = ''; 
     }
 
+    // Update the counter display
+    updateCounterDisplay();
 
+    // Check if all checkboxes in the group are checked
     let group = document.getElementById(groupId);
     let allGroupCheckboxes = group.querySelectorAll('.option-line');
     let allChecked = true;
@@ -764,11 +547,12 @@
     });
 
     if (allChecked) {
-        group.style.backgroundColor = 'lightgray'; 
+        group.style.backgroundColor = '#417249'; 
     } else {
         group.style.backgroundColor = ''; 
     }
 }
+
 
 
         function updateCounterDisplay() {
