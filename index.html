@@ -94,31 +94,40 @@
 
         #counter-container {
             position: fixed;
-            z-index: 9999;
+            top:40px;
+            left: 40px ;
+            z-index: 500;
             border: 2px solid #000000; 
-           padding: 10px;          
+           padding: 15px;          
          background-color: #1E1F22; 
          border-radius: 5px;    
          margin-bottom: 20px; 
          width: fit-content;
          color: #BCBCBC;
+        
         }
 
 
-            #title-container {
-            font-size:45px;
-            align-items: center;
-            display:flex;
-            border: 2px solid #000000; 
-           padding: 10px;          
-         background-color: #1E1F22; 
-         border-radius: 5px;    
-         margin-bottom: 20px; 
-         margin-left: 200px;
-         width: fit-content;
-         color: #BCBCBC;
-        }
+        #title-container {
+        display: flex;
+        align-items: center; /* Aligns title and image vertically */
+        gap: 20px; /* Adds spacing between title and image */
+    }
 
+    #title {
+        font-size: 45px;
+        color: #BCBCBC;
+    }
+
+        #header {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center; /* Centers content vertically */
+        background-color: #1E1F22;
+        padding: 20px 0;
+        border-bottom: 2px solid #333;
+    }
 
         
         #close-modal-btn, #close-rolls-btn, #undo-btn {
@@ -207,6 +216,41 @@
 
         #close-info-modal-btn:hover {
             background-color: #341451;
+        }
+
+        #prev-rolls-container {
+            position: fixed;
+            top:40px;
+            right: 40px ;
+            z-index: 500;  
+         border-radius: 5px;    
+         margin-bottom: 20px; 
+         width: auto;
+         color: #BCBCBC;
+        
+        }
+
+        .collapsible-section {
+            margin-top: 20px;
+            border: 2px solid #1E1F22;
+            border-radius: 5px;
+        }
+
+        .collapsible-header {
+            background-color: #1E1F22;
+            color: #BCBCBC;
+            padding: 10px;
+            cursor: pointer;
+            text-align: center;
+            font-size: 24px;
+        }
+
+        .collapsible-content {
+            background-color: #333;
+            text-align:center;
+            padding: 10px;
+            color: #BCBCBC;
+            display: block; /* Open by default */
         }
 
 
@@ -316,26 +360,40 @@
 </head>
 <body style="background-color: #313239;">
    
-    
     <div id="counter-container"> 
         <div id="counter">Points: 0</div>
     </div>
 
 
-    <div id="title-container"> 
-        <div style="padding-right: 40px; padding-left:20px;">
+    <div id="header">
+        <div id="title-container">
             <div id="title">QTCC Creator Clash</div>
+            <img src="https://content.invisioncic.com/Mwarframe/pages_media/ConqueraGlyph.png" alt="alternatetext" width="90" height="auto">
         </div>
-        <img src="https://content.invisioncic.com/Mwarframe/pages_media/ConqueraGlyph.png" alt="alternatetext"width="90" height="auto"> 
-</div>
+    </div>
 
+
+   
+    <div class="collapsible-section">
+        <h2 class="collapsible-header" onclick="toggleCollapsible(this)">External File Contents (Click to Hide)</h2>
+        <div class="collapsible-content">
+            <div id="external-file-content">
+                Loading...
+            </div>
+        </div>
+    </div>
+
+
+
+<div id="prev-rolls-container">
     <div style="display: flex; justify-content:right ; padding-left: 175px;">
         <button id="previous-rolls-btn" onclick="togglePreviousRolls()">Previous Rolls</button>
-        <button onclick="toggleInfoModal()">Info / Rules</button> 
+        <button onclick="toggleInfoModal()">Additional Info</button> 
     </div>
-    
+</div>
+    <br>
         
-    <div id="output-container">
+<div id="output-container">
         <div id="output">Roll a category to begin!</div>
 
     </div>
@@ -468,7 +526,7 @@
             background-color: rgb(76, 29, 119);  /*----BUTTON COLOUR: ---- */
             color: #BCBCBC;                             
             border: 4px groove;
-            border-color: #333;                             
+            border-color: #333;                            
             border-radius: 8px;                    
             padding: 10px;                             
             text-align: center;      
@@ -533,9 +591,6 @@
     </div>
 </div>
 
-<div style="text-align: center; margin-top: 20px;">
-    <button onclick="toggleInfoModal()">Info</button>
-</div>
 
 <div id="info-modal">
     <div id="info-modal-content">
@@ -558,7 +613,7 @@
             modal.style.display = 'none';  // Close the modal
         } else {
             // Fetch the content from a separate file (e.g., info.txt)
-            fetch('files/data.txt')
+            fetch('files/additional-info.txt')
                 .then(response => response.text())
                 .then(data => {
                     infoParagraph.innerHTML = data; // Insert the fetched content into the modal
@@ -572,6 +627,32 @@
         }
     }
        
+
+    function toggleCollapsible(header) {
+        const content = header.nextElementSibling;
+        if (content.style.display === "block") {
+            content.style.display = "none"; // Close the content
+            header.textContent = "Challenge Brief (Click to Show)"; // Update header text
+        } else {
+            content.style.display = "block"; // Open the content
+            header.textContent = "Challenge Brief (Click to Hide)"; // Update header text
+            // Load external content when opened
+            fetch('files/mainInfo.txt') // Replace with your external file path
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('external-file-content').innerHTML = data;
+                })
+                .catch(error => {
+                    console.error('Error loading external file:', error);
+                    document.getElementById('external-file-content').innerHTML = 'Error loading content.';
+                });
+        }
+    }
+
+    // Automatically fetch content when the page loads
+    document.addEventListener("DOMContentLoaded", function() {
+        toggleCollapsible(document.querySelector('.collapsible-header'));
+    });
        
        
        let counter = 0;
