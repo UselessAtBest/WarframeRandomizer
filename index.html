@@ -5,9 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>QTCC Creator Clash</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<link href='https://fonts.googleapis.com/css?family=Open Sans' rel='stylesheet'>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Open Sans';
             padding: 20px;
             background-color: #232428;
         }
@@ -92,11 +93,28 @@
         }
 
         #counter-container {
+            position: fixed;
+            z-index: 9999;
             border: 2px solid #000000; 
            padding: 10px;          
          background-color: #1E1F22; 
          border-radius: 5px;    
          margin-bottom: 20px; 
+         width: fit-content;
+         color: #BCBCBC;
+        }
+
+
+            #title-container {
+            font-size:45px;
+            align-items: center;
+            display:flex;
+            border: 2px solid #000000; 
+           padding: 10px;          
+         background-color: #1E1F22; 
+         border-radius: 5px;    
+         margin-bottom: 20px; 
+         margin-left: 200px;
          width: fit-content;
          color: #BCBCBC;
         }
@@ -201,7 +219,7 @@
          margin: 10px; 
          border-radius: 5px; 
          vertical-align: top; 
-         width: 415px;
+         width: 410px;
         }
         
          
@@ -234,12 +252,14 @@
 
 }
 
+
         .center-wrapper{
             position: absolute;
             left: 35%;
             transform: translateX(0%);
             text-align: center;
         }
+
 
         .right-wrapper{
             position: absolute;
@@ -296,17 +316,25 @@
 </head>
 <body style="background-color: #313239;">
    
-    <div style="display: flex; justify-content: space-between;">
-        <h1>QTCC Creator Clash</h1>
+    
+    <div id="counter-container"> 
+        <div id="counter">Points: 0</div>
+    </div>
+
+
+    <div id="title-container"> 
+        <div style="padding-right: 40px; padding-left:20px;">
+            <div id="title">QTCC Creator Clash</div>
+        </div>
+        <img src="https://content.invisioncic.com/Mwarframe/pages_media/ConqueraGlyph.png" alt="alternatetext"width="90" height="auto"> 
+</div>
+
+    <div style="display: flex; justify-content:right ; padding-left: 175px;">
         <button id="previous-rolls-btn" onclick="togglePreviousRolls()">Previous Rolls</button>
         <button onclick="toggleInfoModal()">Info / Rules</button> 
     </div>
     
-    </div>
-    <div id="counter-container"> 
-        <div id="counter">Counter: 0</div>
-    </div>
-    
+        
     <div id="output-container">
         <div id="output">Roll a category to begin!</div>
 
@@ -342,14 +370,13 @@
             <span class="button-sub-text">(1 point)</span>
         </button>
 
-
         <button onclick="getRandomLine('files/primary/10-PrimaryWeaponHighCost.txt')">
-            <span class="button-main-text">Prime/Variant Primary Weapon</span>
+            <span class="button-main-text">Primary Weapon</span>
             <span class="button-mid-text">High Cost</span>
             <span class="button-sub-text">(10 points)</span>
         </button>
         <button onclick="getRandomLine('files/primary/5-PrimaryWeaponLowCost.txt')">
-            <span class="button-main-text">Non-Prime Primary Weapon</span>
+            <span class="button-main-text">Primary Weapon Mod</span>
             <span class="button-mid-text">Low Cost</span>
             <span class="button-sub-text">(5 points)</span>
         </button>
@@ -370,12 +397,12 @@
         </button>
 
         <button onclick="getRandomLine('files/secondary/10-SecondaryWeaponHighCost.txt')">
-            <span class="button-main-text">Prime/Variant Secondary Weapon</span>
+            <span class="button-main-text">Secondary Weapon</span>
             <span class="button-mid-text">High Cost</span>
             <span class="button-sub-text">(10 points)</span>
         </button>
         <button onclick="getRandomLine('files/secondary/5-SecondaryWeaponLowCost.txt')">
-            <span class="button-main-text">Non-Prime Secondary Weapon</span>
+            <span class="button-main-text">Secondary Weapon Mod</span>
             <span class="button-mid-text">Low Cost</span>
             <span class="button-sub-text">(5 points)</span>
         </button>
@@ -396,12 +423,12 @@
         </button>
 
         <button onclick="getRandomLine('files/melee/10-MeleeWeaponHighCost.txt')">
-            <span class="button-main-text">Prime/Variant Melee Weapon</span>
+            <span class="button-main-text">Melee Weapon</span>
             <span class="button-mid-text">High Cost</span>
             <span class="button-sub-text">(10 points)</span>
         </button>
         <button onclick="getRandomLine('files/melee/5-MeleeWeaponLowCost.txt')">
-            <span class="button-main-text">Non-Prime Melee Weapon</span>
+            <span class="button-main-text">Melee Weapon Mod</span>
             <span class="button-mid-text">Low Cost</span>
             <span class="button-sub-text">(5 points)</span>
         </button>
@@ -581,58 +608,54 @@
     }
 }
 
-        function updateCounter(points, optionId, groupId) {
-    let option = document.getElementById(optionId); 
-    let checkboxes = option.querySelectorAll('input[type="checkbox"]'); 
-    let isChecked = false; 
+        
+function updateCounter(points, optionId) {
+    const checkboxes = document.querySelectorAll(`#${optionId} input[type="checkbox"]`);
+    
+    // Calculate total points change based on the current state of the checkboxes
+    let totalPointsChange = 0;
 
+    // Count the checked checkboxes
     checkboxes.forEach(checkbox => {
         if (checkbox.checked) {
-            isChecked = true; 
+            totalPointsChange += points; // Add points for each checked checkbox 
         }
     });
 
-    // Update the counter
-    if (isChecked) {
-        counter += points; // Subtract points if checked
-        option.style.backgroundColor = '#417249'; 
+    // Calculate the actual points to update
+    const currentCheckboxCount = Array.from(checkboxes).filter(cb => cb.checked).length;
+    const previousCheckboxCount = Number(localStorage.getItem(optionId)) || 0; // Store previous count in localStorage
+
+    // Update points based on the difference between current and previous counts
+    if (currentCheckboxCount > previousCheckboxCount) {
+        counter += (currentCheckboxCount - previousCheckboxCount) * points; // Add points for new checkboxes
     } else {
-        counter -= points; // Add points back if unchecked
-        option.style.backgroundColor = ''; 
+        counter -= (previousCheckboxCount - currentCheckboxCount) * points; // Subtract points for unchecked checkboxes 
     }
 
-    // Update the counter display
+    // Store the current count in localStorage for future reference
+    localStorage.setItem(optionId, currentCheckboxCount);
+
+    // Update the display
     updateCounterDisplay();
+}
 
-    // Check if all checkboxes in the group are checked
-    let group = document.getElementById(groupId);
-    let allGroupCheckboxes = group.querySelectorAll('.option-line');
-    let allChecked = true;
-
-    allGroupCheckboxes.forEach(function(optionLine) {
-        let lineCheckboxes = optionLine.querySelectorAll('input[type="checkbox"]');
-        if (lineCheckboxes.length === 2) {
-            if (!lineCheckboxes[0].checked) {
-                allChecked = false; 
-            }
-        } else {
-            if (!lineCheckboxes[0].checked) {
-                allChecked = false;
-            }
-        }
+// Add event listeners to all checkboxes
+document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
+    checkbox.addEventListener('change', function() {
+        const optionId = this.closest('.option-line').id; // Get the correct option line ID
+        updateCounter(1, optionId); // Adjust points based on checkbox state
     });
+});
 
-    if (allChecked) {
-        group.style.backgroundColor = '#417249'; 
-    } else {
-        group.style.backgroundColor = ''; 
-    }
+function updateCounterDisplay() {
+    document.getElementById('counter').textContent = `Points: ${counter}`;
 }
 
 
 
         function updateCounterDisplay() {
-            document.getElementById('counter').textContent = `Counter: ${counter}`;
+            document.getElementById('counter').textContent = `Points: ${counter}`;
         }
 
         function togglePreviousRolls() {
