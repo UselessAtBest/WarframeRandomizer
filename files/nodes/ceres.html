@@ -1,137 +1,165 @@
 <div class="group" id="Ceres">
     <div class="group-header">Ceres (15 Missions)</div>
 
-    <div class="option-line" id="option151">
+    <div class="option-line" id="Ceres1">
         <div class="left-text">Jupiter</div>
         <div class="center-wrapper">
-        <div class="center-text">Junction (3 Points)</div>
+            <div class="center-text">Junction (3 Points)</div>
         </div>
-        <input type="checkbox" onclick="updateCounter(3, 'option151', 'Ceres')">
+        <div class="right-wrapper">
+            <input type="checkbox" id="Ceres1-1" onclick="updateCounter(3, 'Ceres1')">
+        </div>
     </div>
 
-    <div class="option-line" id="option152">
+    <div class="option-line" id="Ceres2">
         <div class="left-text">Pallas</div>
         <div class="center-wrapper">
-        <div class="center-text">Exterminate (1 Point)</div>
+            <div class="center-text">Exterminate (1 Point)</div>
         </div>
-        <input type="checkbox" onclick="updateCounter(3, 'option152', 'Ceres')"> 
+        <div class="right-wrapper">
+            <input type="checkbox" id="Ceres2-1" onclick="updateCounter(1, 'Ceres2')">
+        </div>
     </div>
-    
-    <div class="option-line" id="option153">
+
+    <div class="option-line" id="Ceres3">
         <div class="left-text">Bode</div>
         <div class="center-wrapper">
-        <div class="center-text">Spy (1/2 Points)</div>
-        </div>       
-         <div class="right-wrapper">
-        <input type="checkbox" onclick="updateCounter(1, 'option153', 'Ceres')">
-        <input type="checkbox" onclick="updateCounter(1, 'option153', 'Ceres')">
-    </div>
+            <div class="center-text">Spy (1-2 Points)</div>
+        </div>
+        <div class="right-wrapper">
+            <input type="checkbox" id="Ceres3-1" onclick="updateCounter(1, 'Ceres3')">
+            <input type="checkbox" id="Ceres3-2" onclick="updateCounter(1, 'Ceres3')">
+        </div>
     </div>
 
-    <div class="option-line" id="option154">
+    <div class="option-line" id="Ceres4">
         <div class="left-text">Draco</div>
         <div class="center-wrapper">
-        <div class="center-text">Survival (1 Point)</div>
+            <div class="center-text">Survival (1 Point)</div>
         </div>
-        <input type="checkbox" onclick="updateCounter(1, 'option154', 'Ceres')">
+        <div class="right-wrapper">
+            <input type="checkbox" id="Ceres4-1" onclick="updateCounter(1, 'Ceres4')">
+        </div>
     </div>
 
-    <div class="option-line" id="option155">
+    <div class="option-line" id="Ceres5">
         <div class="left-text">Cinxia</div>
         <div class="center-wrapper">
-        <div class="center-text">Interception (1 Point)</div>
+            <div class="center-text">Interception (1 Point)</div>
         </div>
-        <input type="checkbox" onclick="updateCounter(0, 'option155', 'Ceres')">
+        <div class="right-wrapper">
+            <input type="checkbox" id="Ceres5-1" onclick="updateCounter(1, 'Ceres5')">
+        </div>
     </div>
 
-    <div class="option-line" id="option156">
+    <div class="option-line" id="Ceres6">
         <div class="left-text">Casta</div>
-        <div class="center-wrapper">    
-        <div class="center-text">Defense (1 Point)</div>
-            </div>
-        <input type="checkbox" onclick="updateCounter(1, 'option156', 'Ceres')">
+        <div class="center-wrapper">
+            <div class="center-text">Defense (1 Point)</div>
+        </div>
+        <div class="right-wrapper">
+            <input type="checkbox" id="Ceres6-1" onclick="updateCounter(1, 'Ceres6')">
+        </div>
     </div>
 
-    <div class="option-line" id="option157">
+    <div class="option-line" id="Ceres7">
         <div class="left-text">Kiste</div>
         <div class="center-wrapper">
-        <div class="center-text">Mobile Defense (1 Point)</div>
+            <div class="center-text">Mobile Defense (1 Point)</div>
         </div>
-        <input type="checkbox" onclick="updateCounter(1, 'option157', 'Ceres')">
+        <div class="right-wrapper">
+            <input type="checkbox" id="Ceres7-1" onclick="updateCounter(1, 'Ceres7')">
+        </div>
     </div>
 
-    <div class="option-line" id="option158">
+    <div class="option-line" id="Ceres8">
         <div class="left-text">Nuovo</div>
         <div class="center-wrapper">
-        <div class="center-text">Rescue (1/2 Points)</div>
-        </div>       
-         <div class="right-wrapper">
-        <input type="checkbox" onclick="updateCounter(1, 'option158', 'Ceres')">
-        <input type="checkbox" onclick="updateCounter(1, 'option158', 'Ceres')">
-    </div>
+            <div class="center-text">Rescue (1-2 Points)</div>
+        </div>
+        <div class="right-wrapper">
+            <input type="checkbox" id="Ceres8-1" onclick="updateCounter(1, 'Ceres8')">
+            <input type="checkbox" id="Ceres8-2" onclick="updateCounter(1, 'Ceres8')">
+        </div>
     </div>
 
-    <div class="option-line" id="option159">
+    <div class="option-line" id="Ceres9">
         <div class="left-text">Lex</div>
         <div class="center-wrapper">
-        <div class="center-text">Capture (1 Point)</div>
+            <div class="center-text">Capture (1 Point)</div>
         </div>
-        <input type="checkbox" onclick="updateCounter(1, 'option159', 'Ceres')">
+        <div class="right-wrapper">
+            <input type="checkbox" id="Ceres9-1" onclick="updateCounter(1, 'Ceres9')">
+        </div>
     </div>
 
-    <div class="option-line" id="option1510">
+    <div class="option-line" id="Ceres11">
         <div class="left-text">Ker</div>
         <div class="center-wrapper">
-        <div class="center-text">Sabotage (1 Point)</div>
+            <div class="center-text">Sabotage (1 Point)</div>
         </div>
-        <input type="checkbox" onclick="updateCounter(1, 'option1510', 'Ceres')">
+        <div class="right-wrapper">
+            <input type="checkbox" id="Ceres1-1" onclick="updateCounter(1, 'Ceres11')">
+        </div>
     </div>
-
-    <div class="option-line" id="option1511">
+    
+    <div class="option-line" id="Ceres12">
         <div class="left-text">Exta</div>
         <div class="center-wrapper">
-        <div class="center-text">Assassination (3 Points)</div>
+            <div class="center-text">Assassination (3 Points)</div>
         </div>
-        <input type="checkbox" onclick="updateCounter(3, 'option1511', 'Ceres')">
+        <div class="right-wrapper">
+            <input type="checkbox" id="Ceres12-1" onclick="updateCounter(3, 'Ceres12')">
+        </div>
     </div>
 
-    <div class="option-line" id="option1512">
+    <div class="option-line" id="Ceres13">
         <div class="left-text">Ludi</div>
         <div class="center-wrapper">
-        <div class="center-text">Hijack (1 Point)</div>
+            <div class="center-text">Hijack (1 Point)</div>
         </div>
-        <input type="checkbox" onclick="updateCounter(1, 'option1512', 'Ceres')">
+        <div class="right-wrapper">
+            <input type="checkbox" id="Ceres13-1" onclick="updateCounter(1, 'Ceres13')">
+        </div>
     </div>
 
-    <div class="option-line" id="option1513">
+    <div class="option-line" id="Ceres14">
         <div class="left-text">Thon</div>
         <div class="center-wrapper">
-        <div class="center-text">Sabotage (1 Point)</div>
+            <div class="center-text">Sabotage (1 Point)</div>
         </div>
-        <input type="checkbox" onclick="updateCounter(1, 'option1513', 'Ceres')">
+        <div class="right-wrapper">
+            <input type="checkbox" id="Ceres14-1" onclick="updateCounter(1, 'Ceres14')">
+        </div>
     </div>
 
-    <div class="option-line" id="option1514">
+    <div class="option-line" id="Ceres15">
         <div class="left-text">Gabii</div>
         <div class="center-wrapper">
-        <div class="center-text">Survival (Dark Sector) (1 Point)</div>
-            </div>
-        <input type="checkbox" onclick="updateCounter(1, 'option1514', 'Ceres')">
+            <div class="center-text">Survival (1 Point)</div>
+        </div>
+        <div class="right-wrapper">
+            <input type="checkbox" id="Ceres15-1" onclick="updateCounter(1, 'Ceres15')">
+        </div>
     </div>
 
-    <div class="option-line" id="option1515">
+    <div class="option-line" id="Ceres16">
         <div class="left-text">Seimeni</div>
         <div class="center-wrapper">
-        <div class="center-text">Defense (Dark Sector) (1 Point)</div>
+            <div class="center-text">Defense (1 Point)</div>
         </div>
-        <input type="checkbox" onclick="updateCounter(1, 'option1515', 'Ceres')">
+        <div class="right-wrapper">
+            <input type="checkbox" id="Ceres16-1" onclick="updateCounter(1, 'Ceres16')">
+        </div>
     </div>
 
-    <div class="option-line" id="footer">
-        <span class="left-text">All Nodes</span>
+    <div class="option-line" id="Ceres17">
+        <div class="left-text">All Nodes</div>
         <div class="center-wrapper">
-        <span class="center-text">(15 Points)</span>
+            <div class="center-text">(15 Points)</div>
         </div>
-        <input type="checkbox" onclick="updateCounter(15, 'footer', 'Ceres')">
+        <div class="right-wrapper">
+            <input type="checkbox" id="Ceres17-1" onclick="updateCounter(15, 'Ceres17')">
         </div>
     </div>
+</div>
