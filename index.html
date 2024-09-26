@@ -616,7 +616,7 @@
             modal.style.display = 'none';  // Close the modal
         } else {
             // Fetch the content from a separate file (e.g., info.txt)
-            fetch('files/additional-info.txt')
+            fetch('files/additionalInfo.txt')
                 .then(response => response.text())
                 .then(data => {
                     infoParagraph.innerHTML = data; // Insert the fetched content into the modal
