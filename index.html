@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" /> 
     <title>QTCC Creator Clash</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 <link href='https://fonts.googleapis.com/css?family=Open Sans' rel='stylesheet'>
@@ -613,7 +616,7 @@
             modal.style.display = 'none';  // Close the modal
         } else {
             // Fetch the content from a separate file (e.g., info.txt)
-            fetch('files/additionalInfo.txt')
+            fetch('files/additional-info.txt')
                 .then(response => response.text())
                 .then(data => {
                     infoParagraph.innerHTML = data; // Insert the fetched content into the modal
@@ -775,7 +778,10 @@ function updateCounterDisplay() {
             document.getElementById('modal').style.display = 'none';
         }
 
-
+        window.addEventListener("load", function() {
+    localStorage.clear();  // Clear local storage
+    sessionStorage.clear(); // Clear session storage
+});
 
 
     </script>
