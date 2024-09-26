@@ -230,7 +230,6 @@
          margin-bottom: 20px; 
          width: auto;
          color: #BCBCBC;
-         max-width: 200px;
         
         }
 
@@ -456,9 +455,9 @@
 
 
 <div id="prev-rolls-container">
-    <div style="display: grid; justify-content:right ; padding-left: 175px;">
-        <button id="previous-rolls-btn" onclick="togglePreviousRolls()" style="width: 200px;">Previous Rolls</button> <br>
-        <button onclick="toggleInfoModal()"style="width: 200px;">Additional Info</button> 
+    <div style="display: flex; justify-content:right ; padding-left: 175px;">
+        <button id="previous-rolls-btn" onclick="togglePreviousRolls()">Previous Rolls</button>
+        <button onclick="toggleInfoModal()">Additional Info</button> 
     </div>
 </div>
     <br>
@@ -468,10 +467,9 @@
 
     </div>
 
-    <div style="text-align: center; color:#787b8a;">
+    <div style="text-align: center; color:#232428;">
         <br>
-        Reminder: You can use the Previous Rolls button to undo the last roll.
-
+       Q T C C C C C
     </div>
     
     <div id="message"></div>
@@ -672,66 +670,73 @@
     <div id="info-modal-content">
         <div id="info-modal-header">Rules & Such</div>
         <div id="info-modal-paragraph">
+            <!-- This content will be dynamically loaded -->
         </div>
         <button id="close-info-modal-btn" onclick="toggleInfoModal()">Close</button>
     </div>
 </div>
 
 <script>
-
+    // Toggle the info modal visibility
     function toggleInfoModal() {
         const modal = document.getElementById('info-modal');
         const infoParagraph = document.getElementById('info-modal-paragraph');
         
-
+        // Check if the modal is already open
         if (modal.style.display === 'flex') {
-            modal.style.display = 'none'; 
+            modal.style.display = 'none';  // Close the modal
         } else {
-
-            fetch('files/moreinfo.html')
+            // Fetch the content from a separate file (e.g., info.txt)
+            fetch('files/addInfo.html')
                 .then(response => response.text())
                 .then(data => {
-                    infoParagraph.innerHTML = data;
-                    modal.style.display = 'flex';  
+                    infoParagraph.innerHTML = data; // Insert the fetched content into the modal
+                    modal.style.display = 'flex';  // Open the modal
                 })
+                .catch(error => {
+                    console.error('Error fetching the info file:', error);
+                    infoParagraph.innerHTML = 'Error loading information.';
+                    modal.style.display = 'flex';  // Open the modal even if there's an error
+                });
         }
     }
        
 
-    let lastDisplayedFiles = {}; 
+    let lastDisplayedFiles = {}; // Track the last displayed files for each button
 
 function toggleRollsButtons() {
     const RollsNestedButtons = document.getElementById("RollsNestedButtons");
+    // Toggle the nested buttons
     RollsNestedButtons.style.display = RollsNestedButtons.style.display === "none" ? "grid" : "none";
 }
 
 function toggleRollsText(files, buttonName) {
-    const outputDiv = document.getElementById(`RollsOutput1`); 
+    const outputDiv = document.getElementById(`RollsOutput1`); // Example using first output div
 
-
+    // Check if this button is already showing the files
     if (lastDisplayedFiles[buttonName] && outputDiv.style.display === "block") {
-
+        // Hide all outputs
         for (let i = 1; i <= 5; i++) {
             const outputDiv = document.getElementById(`RollsOutput${i}`);
             if (outputDiv) {
-                outputDiv.style.display = "none"; 
-                outputDiv.innerText = ""; 
+                outputDiv.style.display = "none"; // Hide all outputs
+                outputDiv.innerText = ""; // Clear the content
             }
         }
-        delete lastDisplayedFiles[buttonName]; 
-        return; 
+        delete lastDisplayedFiles[buttonName]; // Remove from displayed files
+        return; // Exit the function early
     }
 
-
+    // Hide all outputs initially
     for (let i = 1; i <= 5; i++) {
         const outputDiv = document.getElementById(`RollsOutput${i}`);
         if (outputDiv) {
-            outputDiv.style.display = "none"; 
-            outputDiv.innerText = ""; 
+            outputDiv.style.display = "none"; // Hide all outputs
+            outputDiv.innerText = ""; // Clear the content
         }
     }
 
- 
+    // Fetch files and display their content
     files.forEach((file, index) => {
         const outputDiv = document.getElementById(`RollsOutput${index + 1}`);
         fetch(file)
@@ -743,15 +748,16 @@ function toggleRollsText(files, buttonName) {
             })
             .then(data => {
                 outputDiv.innerText = data;
-                outputDiv.style.display = "block"; 
+                outputDiv.style.display = "block"; // Show output section
             })
             .catch(error => {
                 console.error(`Error fetching the file ${file}:`, error);
                 outputDiv.innerText = "Failed to load the file.";
-                outputDiv.style.display = "block"; 
+                outputDiv.style.display = "block"; // Show error message
             });
     });
 
+    // Track which button is currently displayed
     lastDisplayedFiles[buttonName] = true;
 }
 
@@ -760,11 +766,13 @@ function toggleRollsText(files, buttonName) {
     function toggleCollapsible(header) {
         const content = header.nextElementSibling;
         if (content.style.display === "block") {
-            content.style.display = "none"; 
-            header.textContent = "Challenge Brief (Click to Show)"; 
+            content.style.display = "none"; // Close the content
+            header.textContent = "Challenge Brief (Click to Show)"; // Update header text
         } else {
-            content.style.display = "block"; 
-            header.textContent = "Challenge Brief (Click to Hide)"; 
+            content.style.display = "block"; // Open the content
+            header.textContent = "Challenge Brief (Click to Hide)"; // Update header text
+            // Load external content when opened
+            fetch('files/mainInfo.html') // Replace with your external file path
                 .then(response => response.text())
                 .then(data => {
                     document.getElementById('external-file-content').innerHTML = data;
@@ -778,6 +786,7 @@ function toggleRollsText(files, buttonName) {
 
     
 
+    // Automatically fetch content when the page loads
     document.addEventListener("DOMContentLoaded", function() {
         toggleCollapsible(document.querySelector('.collapsible-header'));
     });
@@ -821,39 +830,39 @@ function toggleRollsText(files, buttonName) {
 function updateCounter(points, optionId) {
     const checkboxes = document.querySelectorAll(`#${optionId} input[type="checkbox"]`);
     
-
+    // Calculate total points change based on the current state of the checkboxes
     let totalPointsChange = 0;
 
-
+    // Count the checked checkboxes
     checkboxes.forEach(checkbox => {
         if (checkbox.checked) {
-            totalPointsChange += points; 
+            totalPointsChange += points; // Add points for each checked checkbox 
         }
     });
 
-
+    // Calculate the actual points to update
     const currentCheckboxCount = Array.from(checkboxes).filter(cb => cb.checked).length;
-    const previousCheckboxCount = Number(localStorage.getItem(optionId)) || 0; 
+    const previousCheckboxCount = Number(localStorage.getItem(optionId)) || 0; // Store previous count in localStorage
 
-
+    // Update points based on the difference between current and previous counts
     if (currentCheckboxCount > previousCheckboxCount) {
-        counter += (currentCheckboxCount - previousCheckboxCount) * points; 
+        counter += (currentCheckboxCount - previousCheckboxCount) * points; // Add points for new checkboxes
     } else {
-        counter -= (previousCheckboxCount - currentCheckboxCount) * points; 
+        counter -= (previousCheckboxCount - currentCheckboxCount) * points; // Subtract points for unchecked checkboxes 
     }
 
-
+    // Store the current count in localStorage for future reference
     localStorage.setItem(optionId, currentCheckboxCount);
 
-
+    // Update the display
     updateCounterDisplay();
 }
 
-
+// Add event listeners to all checkboxes
 document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
     checkbox.addEventListener('change', function() {
-        const optionId = this.closest('.option-line').id; 
-        updateCounter(1, optionId); 
+        const optionId = this.closest('.option-line').id; // Get the correct option line ID
+        updateCounter(1, optionId); // Adjust points based on checkbox state
     });
 });
 
@@ -904,8 +913,8 @@ function updateCounterDisplay() {
         }
 
         window.addEventListener("load", function() {
-    localStorage.clear();  
-    sessionStorage.clear(); 
+    localStorage.clear();  // Clear local storage
+    sessionStorage.clear(); // Clear session storage
 });z
 
 
