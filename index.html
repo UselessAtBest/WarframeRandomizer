@@ -359,6 +359,55 @@
         .roll-item span {
             width: calc(100% - 100px); 
         }
+
+        .RollsContainer {
+            margin-bottom: 20px;
+            text-align:center;
+        }
+
+        .RollsExpandButton {
+            padding: 10px 20px;
+            font-size: 16px;
+            text-align:center;
+        }
+
+        .RollsNestedButtons {
+            margin-top: 10px;
+            display: grid;
+            align-content: center;
+            grid-template-columns: repeat(5, 1fr); /* 5 columns */
+            gap: 10px; /* Space between buttons */
+            right: 50%;
+            text-align:center;
+        }
+
+        .RollsNestedButtons button {
+            display: flex;
+            text-align:center;
+            padding: 10px;
+            font-size: 24px;
+            width: 450px; 
+            text-align:center;
+        }
+
+        .RollsOutputContainer {
+            margin-top: 20px;
+            display: grid;
+            grid-template-columns: repeat(5, 1fr); /* 2 columns for outputs */
+            gap: 20px; /* Space between outputs */
+            text-align:center;
+        }
+
+        .RollsOutput {
+            border: 3px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+            display: none; /* Hide output initially */
+            text-align:center;
+            color:white;
+        }
+
+
     </style>
 </head>
 <body style="background-color: #313239;">
@@ -385,7 +434,24 @@
             </div>
         </div>
     </div>
-
+    <br>
+    <div class="RollsContainer">
+        <button class="RollsExpandButton" onclick="toggleRollsButtons()">Expand to reward pools:</button>
+        <div class="RollsNestedButtons" id="RollsNestedButtons" style="display: none;">
+            <button onclick="toggleRollsText(['files/warframe/10-Warframe.txt', 'files/warframe/3-WarframeModAura.txt', 'files/warframe/5-WarframeModHighCost.txt','files/warframe/3-WarframeModLowCost.txt', 'files/warframe/1-WarframeModUtility.txt'], 'Button 1')">Warframe</button>
+            <button onclick="toggleRollsText(['files/primary/10-PrimaryWeaponHighCost.txt', 'files/primary/5-PrimaryWeaponLowCost.txt', 'files/primary/5-PrimaryWeaponModHighCost.txt', 'files/primary/3-PrimaryWeaponModLowCost.txt', 'files/primary/1-PrimaryWeaponModUtility.txt'], 'Button 2')">Primary</button>
+            <button onclick="toggleRollsText(['files/secondary/10-SecondaryWeaponHighCost.txt', 'files/secondary/5-SecondaryWeaponLowCost.txt', 'files/secondary/5-SecondaryWeaponModHighCost.txt', 'files/secondary/3-SecondaryWeaponModLowCost.txt', 'files/secondary/1-SecondaryWeaponModUtility.txt'], 'Button 3')">Secondary</button>
+            <button onclick="toggleRollsText(['files/melee/10-MeleeWeaponHighCost.txt', 'files/melee/5-MeleeWeaponLowCost.txt', 'files/melee/5-MeleeWeaponModHighCost.txt', 'files/melee/3-MeleeWeaponModLowCost.txt', 'files/melee/1-MeleeWeaponModUtility.txt'], 'Button 4')">Melee</button>
+         </div>
+    </div>
+    
+    <div class="RollsOutputContainer" id="RollsOutputContainer">
+        <div id="RollsOutput1" class="RollsOutput"></div>
+        <div id="RollsOutput2" class="RollsOutput"></div>
+        <div id="RollsOutput3" class="RollsOutput"></div>
+        <div id="RollsOutput4" class="RollsOutput"></div>
+        <div id="RollsOutput5" class="RollsOutput"></div>
+    </div>
 
 
 <div id="prev-rolls-container">
@@ -399,6 +465,11 @@
 <div id="output-container">
         <div id="output">Roll a category to begin!</div>
 
+    </div>
+
+    <div style="text-align: center; color:white;">
+        <br>
+        Jim wanted some text here, idk what
     </div>
     
     <div id="message"></div>
@@ -432,12 +503,12 @@
         </button>
 
         <button onclick="getRandomLine('files/primary/10-PrimaryWeaponHighCost.txt')">
-            <span class="button-main-text">Prime/Variant Primary Weapon</span>
+            <span class="button-main-text">Primary Weapon</span>
             <span class="button-mid-text">High Cost</span>
             <span class="button-sub-text">(10 points)</span>
         </button>
         <button onclick="getRandomLine('files/primary/5-PrimaryWeaponLowCost.txt')">
-            <span class="button-main-text">Non-Prime Primary Weapon</span>
+            <span class="button-main-text">Primary Weapon Mod</span>
             <span class="button-mid-text">Low Cost</span>
             <span class="button-sub-text">(5 points)</span>
         </button>
@@ -458,12 +529,12 @@
         </button>
 
         <button onclick="getRandomLine('files/secondary/10-SecondaryWeaponHighCost.txt')">
-            <span class="button-main-text">Prime/Variant Secondary Weapon</span>
+            <span class="button-main-text">Secondary Weapon</span>
             <span class="button-mid-text">High Cost</span>
             <span class="button-sub-text">(10 points)</span>
         </button>
         <button onclick="getRandomLine('files/secondary/5-SecondaryWeaponLowCost.txt')">
-            <span class="button-main-text">Non-Prime Secondary Weapon</span>
+            <span class="button-main-text">Secondary Weapon Mod</span>
             <span class="button-mid-text">Low Cost</span>
             <span class="button-sub-text">(5 points)</span>
         </button>
@@ -484,12 +555,12 @@
         </button>
 
         <button onclick="getRandomLine('files/melee/10-MeleeWeaponHighCost.txt')">
-            <span class="button-main-text">Prime/Variant Melee Weapon</span>
+            <span class="button-main-text">Melee Weapon</span>
             <span class="button-mid-text">High Cost</span>
             <span class="button-sub-text">(10 points)</span>
         </button>
         <button onclick="getRandomLine('files/melee/5-MeleeWeaponLowCost.txt')">
-            <span class="button-main-text">Non-Prime Melee Weapon</span>
+            <span class="button-main-text">Melee Weapon Mod</span>
             <span class="button-mid-text">Low Cost</span>
             <span class="button-sub-text">(5 points)</span>
         </button>
@@ -616,7 +687,7 @@
             modal.style.display = 'none';  // Close the modal
         } else {
             // Fetch the content from a separate file (e.g., info.txt)
-            fetch('files/additionalInfo.txt')
+            fetch('files/additionalinfo.txt')
                 .then(response => response.text())
                 .then(data => {
                     infoParagraph.innerHTML = data; // Insert the fetched content into the modal
@@ -630,6 +701,67 @@
         }
     }
        
+
+    let lastDisplayedFiles = {}; // Track the last displayed files for each button
+
+function toggleRollsButtons() {
+    const RollsNestedButtons = document.getElementById("RollsNestedButtons");
+    // Toggle the nested buttons
+    RollsNestedButtons.style.display = RollsNestedButtons.style.display === "none" ? "grid" : "none";
+}
+
+function toggleRollsText(files, buttonName) {
+    const outputDiv = document.getElementById(`RollsOutput1`); // Example using first output div
+
+    // Check if this button is already showing the files
+    if (lastDisplayedFiles[buttonName] && outputDiv.style.display === "block") {
+        // Hide all outputs
+        for (let i = 1; i <= 5; i++) {
+            const outputDiv = document.getElementById(`RollsOutput${i}`);
+            if (outputDiv) {
+                outputDiv.style.display = "none"; // Hide all outputs
+                outputDiv.innerText = ""; // Clear the content
+            }
+        }
+        delete lastDisplayedFiles[buttonName]; // Remove from displayed files
+        return; // Exit the function early
+    }
+
+    // Hide all outputs initially
+    for (let i = 1; i <= 5; i++) {
+        const outputDiv = document.getElementById(`RollsOutput${i}`);
+        if (outputDiv) {
+            outputDiv.style.display = "none"; // Hide all outputs
+            outputDiv.innerText = ""; // Clear the content
+        }
+    }
+
+    // Fetch files and display their content
+    files.forEach((file, index) => {
+        const outputDiv = document.getElementById(`RollsOutput${index + 1}`);
+        fetch(file)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+                return response.text();
+            })
+            .then(data => {
+                outputDiv.innerText = data;
+                outputDiv.style.display = "block"; // Show output section
+            })
+            .catch(error => {
+                console.error(`Error fetching the file ${file}:`, error);
+                outputDiv.innerText = "Failed to load the file.";
+                outputDiv.style.display = "block"; // Show error message
+            });
+    });
+
+    // Track which button is currently displayed
+    lastDisplayedFiles[buttonName] = true;
+}
+
+
 
     function toggleCollapsible(header) {
         const content = header.nextElementSibling;
@@ -651,6 +783,8 @@
                 });
         }
     }
+
+    
 
     // Automatically fetch content when the page loads
     document.addEventListener("DOMContentLoaded", function() {
@@ -781,7 +915,7 @@ function updateCounterDisplay() {
         window.addEventListener("load", function() {
     localStorage.clear();  // Clear local storage
     sessionStorage.clear(); // Clear session storage
-});
+});z
 
 
     </script>
