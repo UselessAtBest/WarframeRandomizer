@@ -62,7 +62,7 @@
         }
 
 
-        #modal, #previous-rolls-modal {
+        #modal, #-modal {
             position: fixed;
             top: 0;
             left: 0;
@@ -455,9 +455,9 @@
 
 
 <div id="prev-rolls-container">
-    <div style="display: flex; justify-content:right ; padding-left: 175px;">
-        <button id="previous-rolls-btn" onclick="togglePreviousRolls()">Previous Rolls</button>
-        <button onclick="toggleInfoModal()">Additional Info</button> 
+    <div style="display: grid; justify-content:right ; padding-left: 175px;">
+        <button id="previous-rolls-btn" onclick="togglePreviousRolls()" style="width: 200px;">Previous Rolls</button> <br>
+        <button onclick="toggleInfoModal()"style="width: 200px;">Additional Info</button> 
     </div>
 </div>
     <br>
