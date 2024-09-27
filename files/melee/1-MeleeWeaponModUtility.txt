@@ -3,7 +3,7 @@ Weapon Augment
 Lasting Sting
 Guardian Derision
 Tennokai Mod
-Bane Mod
+Primed / Faction Mod
 Shattering Impact
 Body Count
 Gladiator Rush
