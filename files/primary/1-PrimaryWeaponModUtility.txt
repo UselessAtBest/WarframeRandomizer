@@ -1,4 +1,4 @@
-Primed/Bane mod
+Primed/Faction mod
 Primed/Ammo Mutation
 Primed/Ammo Stock
 Primed/Magazine Warp
