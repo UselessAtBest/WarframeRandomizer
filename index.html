@@ -34,9 +34,10 @@
          color: #BCBCBC;
 }
         .manual-container{
-        display: grid;     
-        place-items: center;          
+        display: grid;       
+        place-items: center;        
          justify-content: center;    
+         align-self:center;
          color: #BCBCBC;
          height:auto;
          width: auto;
@@ -46,6 +47,7 @@
 }
 
 .manual-button{
+        display:grid;
          color: #BCBCBC;
          height:auto;
          width: auto;
@@ -255,6 +257,7 @@
          margin-bottom: 20px; 
          width: auto;
          color: #BCBCBC;
+         place-items: center;
         
         }
 
@@ -551,16 +554,18 @@
 </div><br>
 <div style="align-items: center; color: #CDCDCD; text-align:center; font-size: 12px;"> Manually adjust your points value:</div> 
 <div class="manual-container">
-    <div id="manual-button" style="padding-inline: 5px;">
+    <div id="manual-button" style="padding-inline: 5px; align-items: center;">
         <button class="button-points" onclick="increaseCounter(1)">+1</button>
         <button class="button-points" onclick="increaseCounter(3)">+3</button>
         <button class="button-points" onclick="increaseCounter(5)">+5</button>
-        <button class="button-points" onclick="increaseCounter(10)">+10</button><br>
+        <button class="button-points" onclick="increaseCounter(10)">+10</button>
+    </div> 
+    <div>
         <button class="button-points" onclick="increaseCounter(-1)">-1</button>
         <button class="button-points" onclick="increaseCounter(-3)">-3</button>
         <button class="button-points" onclick="increaseCounter(-5)">-5</button>
         <button class="button-points" onclick="increaseCounter(-10)">-10</button>
-    </div> 
+    </div>
 </div> 
 
     <div style="text-align: center; color:#BCBCBC;">
