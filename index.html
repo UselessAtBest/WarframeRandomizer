@@ -98,7 +98,7 @@
         }
 
         #modal-content, #previous-rolls-content {
-            background-color: #BCBCBC;
+            background-color: #2B2D31;
             padding: 30px;
             border-radius: 10px;
             text-align: center;
@@ -110,6 +110,8 @@
             font-size: 24px;
             font-weight: bold;
             margin-bottom: 15px;
+            white-space:nowrap;
+            color:#CDCDCD;
         }
 
         #modal-paragraph {
@@ -174,7 +176,7 @@
         }
 
         #close-rolls-btn {
-            background-color: rgba(255, 0, 0, 0.733); 
+            background-color: #993537; 
              color: white;
               border: none;
              padding: 10px 15px;
@@ -188,8 +190,8 @@
 
 
         #undo-btn {
-            background-color: blue;
-            color: rgb(95, 91, 91);
+            background-color: #3D3DFF;
+            color: #BCBCBC;
         }
 
         #undo-btn:hover {
@@ -699,7 +701,7 @@ Reminder: You can use the Previous Rolls button to undo the last roll.
             <button id="close-rolls-btn" onclick="closePreviousRolls()">
                 <i class="fas fa-times"></i> Close
             </button>
-            <span>Previous Rolls</span>
+            <span style="padding-inline:35px">Previous Rolls</span>
             <button id="undo-btn" onclick="undoLastRoll()">
                 <i class="fas fa-undo"></i> Undo
             </button>
