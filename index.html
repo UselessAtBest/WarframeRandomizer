@@ -34,12 +34,13 @@
          color: #BCBCBC;
 }
         .manual-container{
-        display: flex;               
+        display: grid;               
          justify-content: center;    
          color: #BCBCBC;
          height:auto;
          width: auto;
          font-size:10px;
+         left: 10px;
 
 }
 
@@ -428,6 +429,63 @@
             color:white;
         }
 
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr); 
+            grid-template-rows: repeat(4, auto);
+            grid-auto-flow: dense;    
+            gap: 10px;                                
+            justify-items: center;  
+            margin: 0 auto;
+            max-width: fit-content;
+        }
+    
+        button {
+            background-color: rgb(76, 29, 119);  /*----BUTTON COLOUR: ---- */
+            color: #BCBCBC;                             
+            border: 4px groove;
+            border-color: #333;                            
+            border-radius: 8px;                    
+            padding: 10px;                             
+            text-align: center;      
+            cursor: pointer;          
+            width: 300px;
+        }
+
+        .button-points {
+            background-color: rgb(76, 29, 119);  /*----BUTTON COLOUR: ---- */
+            color: #BCBCBC;                             
+            border: 4px groove;
+            border-color: #333;                            
+            border-radius: 8px;                    
+            padding: 8px;                             
+            text-align: center;      
+            cursor: pointer;          
+            width: auto;     
+            font-size: 12px;
+        }
+    
+        button:hover {
+            background-color: #430E75; 
+        }
+    
+        .button-main-text { 
+            font-size: 24px;
+            font-weight: bold;       
+            display: block;            
+        }
+
+        .button-mid-text {
+            font-size: 22px;
+            text-decoration: underline;;        
+            display: block;           
+        }
+    
+        .button-sub-text {
+            font-size: 20px;          
+            display: block;            
+        }
+
 
 
 
@@ -487,11 +545,14 @@
         
 <div id="output-container">
         <div id="output">Roll a category to begin!</div>
-</div>
-<br>
+</div><br>
+<div style="align-items: center; color: #CDCDCD; text-align:center; font-size: 12px;"> Manually adjust your points value:</div> 
 <div class="manual-container">
-    <div id="manual-button">
-        <button class="button" onclick="increaseCounter()">Add Point</button>
+    <div id="manual-button" style="padding-inline: 5px;">
+        <button class="button-points" onclick="increaseCounter(1)">+1</button>
+        <button class="button-points" onclick="increaseCounter(3)">+3</button>
+        <button class="button-points" onclick="increaseCounter(5)">+5</button>
+        <button class="button-points" onclick="increaseCounter(10)">+10</button>
     </div> 
 </div> 
 
@@ -611,52 +672,6 @@ Reminder: You can use the Previous Rolls button to undo the last roll.
 
 
     </div>
-
-    <style>
-        .grid-container {
-            display: grid;
-            grid-template-columns: repeat(5, 1fr); 
-            grid-template-rows: repeat(4, auto);
-            grid-auto-flow: dense;    
-            gap: 10px;                                
-            justify-items: center;  
-            margin: 0 auto;
-            max-width: fit-content;
-        }
-    
-        button {
-            background-color: rgb(76, 29, 119);  /*----BUTTON COLOUR: ---- */
-            color: #BCBCBC;                             
-            border: 4px groove;
-            border-color: #333;                            
-            border-radius: 8px;                    
-            padding: 10px;                             
-            text-align: center;      
-            cursor: pointer;          
-            width: 300px;            
-        }
-    
-        button:hover {
-            background-color: #430E75; 
-        }
-    
-        .button-main-text { 
-            font-size: 24px;
-            font-weight: bold;       
-            display: block;            
-        }
-
-        .button-mid-text {
-            font-size: 22px;
-            text-decoration: underline;;        
-            display: block;           
-        }
-    
-        .button-sub-text {
-            font-size: 20px;          
-            display: block;            
-        }
-    </style>
 
     <!-- Groups of Options -->
     <div id="groups"></div>
@@ -946,8 +961,8 @@ function updateCounterDisplay() {
 });z
 
 
-function increaseCounter() {
-            counter++;
+function increaseCounter(points) {
+            counter += points;
             document.getElementById('counter').textContent = 'Points: ' + counter;
         }
 
