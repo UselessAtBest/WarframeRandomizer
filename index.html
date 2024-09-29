@@ -33,6 +33,27 @@
          justify-content: center;    
          color: #BCBCBC;
 }
+        .manual-container{
+        display: flex;               
+         justify-content: center;    
+         color: #BCBCBC;
+         height:auto;
+         width: auto;
+         font-size:10px;
+
+}
+
+.manual-button{
+         color: #BCBCBC;
+         height:auto;
+         width: auto;
+         font-size:10px;
+
+}
+
+
+
+
 
     #output {
          display: inline-block;      
@@ -408,6 +429,8 @@
         }
 
 
+
+
     </style>
 </head>
 <body style="background-color: #313239;">
@@ -464,8 +487,17 @@
         
 <div id="output-container">
         <div id="output">Roll a category to begin!</div>
+</div>
 
-    </div>
+<div class="manual-container">
+    <div id="manual-button">
+        <button class="button" onclick="increaseCounter()">Add Point</button>
+        <button class="button" onclick="increaseCounter()">Add Point</button>
+        <button class="button" onclick="increaseCounter()">Add Point</button>
+        <button class="button" onclick="increaseCounter()">Add Point</button>
+        <button class="button" onclick="increaseCounter()">Add Point</button>
+    </div> 
+</div> 
 
     <div style="text-align: center; color:#BCBCBC;">
         <br>
@@ -792,7 +824,7 @@ function toggleRollsText(files, buttonName) {
     });
        
        
-       let counter = 0;
+        let counter = 0;
         let previousRolls = [];
         let lastRollPoints = 0;
 
@@ -916,6 +948,13 @@ function updateCounterDisplay() {
     localStorage.clear();  // Clear local storage
     sessionStorage.clear(); // Clear session storage
 });z
+
+
+function increaseCounter() {
+            counter++;
+            document.getElementById('counter').textContent = 'Points: ' + counter;
+        }
+
 
 
     </script>
