@@ -10,3 +10,7 @@ Jugulus mod
 Saxum Mod
 Primed/Archon/Flow
 Streamline
+Preparation
+Energy Conversion
+Health Conversion
+Energy Nexus
