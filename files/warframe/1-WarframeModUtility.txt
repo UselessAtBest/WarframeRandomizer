@@ -1,7 +1,5 @@
 Adaptation
 Catalyzing Shields
-Energy Conversion
-Health Conversion
 Rolling Guard
 Elemental resistance mod
 Aero mod
@@ -19,14 +17,12 @@ Natural Talent
 Parkour velocity mod
 Rage
 Aviator
-Preparation
 Primed/Sure Footed
 Heavy Impact
 Pain Threshold
 Fortitude
 Handspring
 Equilibrium
-Energy Nexus
 Primed/Redirection
 Primed/Vigor
 Retribution
