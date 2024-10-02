@@ -99,3 +99,4 @@ Flux Rifle
 Fulmin
 Glaxion
 Kitgun
+Higasa
