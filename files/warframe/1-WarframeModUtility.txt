@@ -34,3 +34,4 @@ Provoked
 Reflex Guard
 Reflection
 Gale Kick
+Vigorous Swap
