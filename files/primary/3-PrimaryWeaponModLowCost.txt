@@ -5,6 +5,7 @@ Laser Sight
 Blunderbuss | Point Strike
 Bladed Rounds
 Shrapnel Shot
+Critical Delay | Critical Deceleration
 Semi-Cannonade mod
 Vicious Spread
 Vigilante Armaments
