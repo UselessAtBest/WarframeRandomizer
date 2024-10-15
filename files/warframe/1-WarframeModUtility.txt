@@ -2,12 +2,12 @@ Adaptation
 Catalyzing Shields
 Rolling Guard
 Elemental resistance mod
-Aero mod
+Aero Vantage
 Hunter mod
 Mecha mod
 Companion mod
-Modus mod
-Proton mod
+Motus Signal
+Proton Pulse
 Strain mod
 Synth mod
 Tek mod
