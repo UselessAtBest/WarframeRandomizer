@@ -9,4 +9,5 @@ Condition Overload
 Amalgam/Organ Shatter
 Focus Radon
 Galvanized Mod
-Free Chocie
+Free Choice
+
