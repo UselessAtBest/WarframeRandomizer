@@ -13,5 +13,6 @@ Speed Trigger | Shotgun Barrage
 Atomic Fallout | Radiated Reload
 Hunter Munitions
 Wildfire | Blaze
-Chillling Reload
+Chilling Reload
 Free Choice
+
